@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Design System — todas as cores, gradientes e shadows em HSL.
+  Tema único: dark cyber purple.
+*/
+
+@layer base {
+  :root {
+    --background: 260 50% 4%;
+    --foreground: 270 20% 96%;
+
+    --card: 262 40% 8%;
+    --card-foreground: 270 20% 96%;
+
+    --popover: 262 45% 6%;
+    --popover-foreground: 270 20% 96%;
+
+    --primary: 262 83% 64%;
+    --primary-foreground: 260 50% 4%;
+    --primary-glow: 270 95% 75%;
+
+    --secondary: 263 35% 14%;
+    --secondary-foreground: 270 20% 96%;
+
+    --muted: 262 30% 12%;
+    --muted-foreground: 265 15% 65%;
+
+    --accent: 187 92% 60%;
+    --accent-foreground: 260 50% 4%;
+
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 270 20% 96%;
+
+    --border: 262 35% 18%;
+    --input: 262 35% 16%;
+    --ring: 262 83% 64%;
+
+    --radius: 1rem;
+
+    --surface: 262 45% 7%;
+    --surface-elevated: 262 40% 10%;
+
+    /* Gradientes */
+    --gradient-primary: linear-gradient(135deg, hsl(262 83% 58%) 0%, hsl(280 95% 65%) 50%, hsl(187 92% 60%) 100%);
+    --gradient-purple: linear-gradient(135deg, hsl(262 83% 58%) 0%, hsl(290 80% 55%) 100%);
+    --gradient-glow: radial-gradient(60% 60% at 50% 0%, hsl(262 83% 50% / 0.35) 0%, transparent 100%);
+    --gradient-radial:
+      radial-gradient(circle at 30% 20%, hsl(262 83% 30% / 0.4), transparent 50%),
+      radial-gradient(circle at 80% 80%, hsl(187 92% 30% / 0.25), transparent 50%);
+
+    /* Sombras / Glows */
+    --shadow-glow: 0 0 40px hsl(262 83% 60% / 0.35), 0 0 80px hsl(280 90% 55% / 0.15);
+    --shadow-glow-cyan: 0 0 30px hsl(187 92% 55% / 0.4);
+    --shadow-elegant: 0 20px 60px -20px hsl(262 83% 30% / 0.5), 0 8px 30px -10px hsl(0 0% 0% / 0.6);
+    --shadow-card: 0 10px 40px -10px hsl(262 50% 5% / 0.8);
+
+    /* Glass */
+    --glass-bg: hsla(262, 45%, 10%, 0.55);
+    --glass-border: hsla(270, 60%, 70%, 0.12);
+
+    /* Easings */
+    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+    --transition-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background-image: var(--gradient-radial);
+    background-attachment: fixed;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.4);
+    color: hsl(var(--foreground));
+  }
+
+  /* Scrollbar customizada */
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: hsl(var(--background)); }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, hsl(var(--primary) / 0.5), hsl(var(--accent) / 0.4));
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--primary) / 0.7); }
+}
+
+@layer components {
+  /* Efeito de vidro */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid var(--glass-border);
+  }
+
+  .glass-card {
+    @apply glass rounded-2xl;
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Texto com gradiente */
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Glows */
+  .glow-purple { box-shadow: var(--shadow-glow); }
+  .glow-cyan { box-shadow: var(--shadow-glow-cyan); }
+
+  /* Grid decorativo de fundo */
+  .grid-bg {
+    background-image:
+      linear-gradient(hsl(var(--primary) / 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.07) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 40%, transparent 100%);
+  }
+}
