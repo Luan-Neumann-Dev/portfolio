@@ -1,6 +1,13 @@
 import { motion } from "framer-motion"
 import { experiences } from "@/data/profile"
-import { Briefcase } from "lucide-react"
+
+import c1 from "@/assets/company-1.png";
+import c2 from "@/assets/company-2.png";
+
+const logos: Record<string, string> = {
+  "company-1": c1,
+  "company-2": c2,
+};
 
 const Experience = () => {
   return (
@@ -39,8 +46,15 @@ const Experience = () => {
                   <div className="absolute left-0 md:left-1/2 top-6 md:-translate-x-1/2 z-10">
                     <div className="relative">
                       <div className="absolute inset-0 bg-primary/40 blur-xl rounded-full animate-pulse-glow" />
-                      <div className="relative w-14 h-14 rounded-2xl glass flex items-center justify-center transition-transform">
-                        <Briefcase className="w-6 h-6 text-accent" />
+                      <div className="relative w-14 h-14 rounded-lg glass flex items-center justify-center transition-transform">
+                        <img
+                          src={logos[exp.logo]}
+                          alt={exp.company}
+                          className="w-full h-full object-contain rounded-lg"
+                          loading="lazy"
+                          width={56}
+                          height={56}
+                        />
                       </div>
                     </div>
                   </div>

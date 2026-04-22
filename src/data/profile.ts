@@ -42,6 +42,7 @@ export const stack = [
 export const experiences = [
   {
     company: "ZenFisio",
+    logo: "company-1",
     role: "Desenvolvedor Full Stack",
     period: "Mar 2025 — Presente",
     description:
@@ -54,6 +55,7 @@ export const experiences = [
   },
   {
     company: "Abase Sistemas Ltda",
+    logo: "company-2",
     role: "Desenvolvedor Full Stack",
     period: "— — — —",
     description:
