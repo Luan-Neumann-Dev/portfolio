@@ -33,11 +33,16 @@ const ProjectDetail = () => {
   return (
     <main className="relative">
       <Navbar />
-      
+
       <section className="relative h-[80vh] min-h-[600px] overflow-hidden">
-        <img src={project.thumbnail} alt={project.title} className="absolute inset-0 w-full h-full object-cover scale-105" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background bia-background/70 to-background/40" />
-        <div className="abolsute inset-0 grid-bg opacity-50" />
+        <img
+          src={project.thumbnail}
+          alt={project.title}
+          className="absolute inset-0 w-full h-full object-cover scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/40" />
+        <div className="absolute inset-0 grid-bg opacity-50" />
+
         <div className="container relative h-full flex flex-col justify-end pb-16">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -46,25 +51,25 @@ const ProjectDetail = () => {
             className="max-w-4xl space-y-5"
           >
             <Link
-              to={"/projetos"}
+              to="/#projetos"
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               Todos os projetos
             </Link>
-            
+
             <p className="font-mono text-xs text-accent uppercase tracking-widest">
               {project.year} · {project.subtitle}
             </p>
-            
+
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight">
               <span className="text-gradient">{project.title}</span>
             </h1>
-            
+
             <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
               {project.description}
             </p>
-            
+
             <div className="flex flex-wrap gap-3 pt-3">
               {project.demo && (
                 <a
@@ -73,7 +78,7 @@ const ProjectDetail = () => {
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-gradient-primary text-primary-foreground font-medium shadow-glow hover:scale-105 transition-transform"
                 >
-                  <ExternalLink className="w-4 h-4"/> Live demo
+                  <ExternalLink className="w-4 h-4" /> Live demo
                 </a>
               )}
               {project.github && (
@@ -83,14 +88,14 @@ const ProjectDetail = () => {
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-full glass hover:border-primary/40 transition-colors"
                 >
-                  <Github className="w-4 h-4" />
+                  <Github className="w-4 h-4" /> Código
                 </a>
               )}
             </div>
           </motion.div>
         </div>
       </section>
-      
+
       <section className="container -mt-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -101,49 +106,53 @@ const ProjectDetail = () => {
           <p className="font-mono text-[11px] text-accent uppercase tracking-widest mr-2">
             Stack:
           </p>
-          {project.techs.map((tech) => (
-            <span key={tech} className="px-3 py-1 text-xs font-mono rounded-full bg-primary/10 border border-primary/20">
-              {tech}
+          {project.techs.map((t) => (
+            <span
+              key={t}
+              className="px-3 py-1 text-xs font-mono rounded-full bg-primary/10 border border-primary/20"
+            >
+              {t}
             </span>
           ))}
         </motion.div>
       </section>
-      
-      <section className="container pt-24 grid lg:grid-cols-12 gap-12">
+
+      <section className="container py-24 grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-8 space-y-16">
-          {sections.map((section, i) => (
+          {sections.map((s, i) => (
             <motion.div
-              key={section.key}
+              key={s.key}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6}}
+              transition={{ duration: 0.6 }}
             >
               <p className="font-mono text-xs text-accent uppercase tracking-widest mb-3">
-                {`0${i+1}`} - {section.label}
+                {`0${i + 1}`} — {s.label}
               </p>
               <p className="text-xl md:text-2xl leading-relaxed font-display">
-                {project[section.key as keyof typeof project] as string}
+                {project[s.key as keyof typeof project] as string}
               </p>
             </motion.div>
           ))}
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true}}
-            transition={{ duration: 0.6}}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="space-y-4"
           >
             <p className="font-mono text-xs text-accent uppercase tracking-widest">
-              04 - Galeira
+              04 — Galeria
             </p>
-            
             <div className="grid sm:grid-cols-2 gap-4">
               {project.images.map((img, idx) => (
                 <div
                   key={idx}
-                  className={`group relative overflow-hidden rounded-2xl glass shadow-card ${idx === 0 ? "sm:col-span-2 aspect-[16/9]" : "aspect-[4/3]"}`}
+                  className={`group relative overflow-hidden rounded-2xl glass shadow-card ${
+                    idx === 0 ? "sm:col-span-2 aspect-[16/9]" : "aspect-[4/3]"
+                  }`}
                 >
                   <img
                     src={img}
@@ -156,11 +165,11 @@ const ProjectDetail = () => {
             </div>
           </motion.div>
         </div>
-        
+
         <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-32 lg:self-start">
-          {listSections.map((section, i) => (
+          {listSections.map((s, i) => (
             <motion.div
-              key={section.key}
+              key={s.key}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -168,11 +177,10 @@ const ProjectDetail = () => {
               className="glass-card p-6"
             >
               <p className="font-mono text-[11px] text-accent uppercase tracking-widest mb-4">
-                {section.label}
+                {s.label}
               </p>
-              
               <ul className="space-y-3">
-                {(project[section.key as keyof typeof project] as string[]).map((item, idx) => (
+                {(project[s.key as keyof typeof project] as string[]).map((item, idx) => (
                   <li key={idx} className="flex gap-3 text-sm leading-relaxed">
                     <span className="font-mono text-primary mt-0.5">→</span>
                     <span>{item}</span>
@@ -183,7 +191,7 @@ const ProjectDetail = () => {
           ))}
         </aside>
       </section>
-      
+
       <section className="container pb-32">
         <Link
           to={`/projeto/${next.id}`}
@@ -193,9 +201,8 @@ const ProjectDetail = () => {
             src={next.thumbnail}
             alt={next.title}
             loading="lazy"
-            className="absolute inset-0 w-full h-ull object-cover group-hover:scale-105 transition-transform duration-1000"
+            className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
           />
-          
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/30" />
           <div className="relative h-full flex flex-col justify-center p-10 md:p-16">
             <p className="font-mono text-xs text-accent uppercase tracking-widest mb-3">
@@ -210,7 +217,7 @@ const ProjectDetail = () => {
         </Link>
       </section>
     </main>
-  )
+  );
 }
 
 export default ProjectDetail

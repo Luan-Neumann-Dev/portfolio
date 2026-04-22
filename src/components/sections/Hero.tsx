@@ -92,7 +92,7 @@ const Hero = () => {
                 className='absolute -left-6 top-12 glass-card p-3 px-4 hidden md:block'
               >
                 <p className='font-mono text-[10px] text-accent uppercase tracking-wider'>Stack</p>
-                <p className='text-sm font-semibold mt-0.5'>React · Node · TS</p>
+                <p className='text-sm font-semibold mt-0.5'>Laravel · React · TS</p>
               </motion.div>
 
               <motion.div
@@ -109,8 +109,10 @@ const Hero = () => {
                 transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5}}
                 className='absolute -left-2 -bottom-6 glass-card p-3 px-4 hidden md:block'
               >
-                <span className="h-2 w-2 rounded-full bg-accent animate-pulse shadow-glow-cyan" />
-                <p className='text-sm font-semibold'>Online agora</p>
+                <div className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-accent animate-pulse shadow-glow-cyan" />
+                  <p className='text-sm font-semibold'>Online agora</p>
+                </div>
               </motion.div>
             </div>
           </motion.div>

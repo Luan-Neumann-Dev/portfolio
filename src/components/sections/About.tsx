@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { profile } from '@/data/profile'
 import { MapPin, Mail } from 'lucide-react'
+import workspace from "@/assets/about-workspace.jpg";
 
 const About = () => {
   return (
@@ -18,9 +19,14 @@ const About = () => {
               <div className='absolute -inset-4 bg-gradient-primary opacity-20 blur-2xl rounded-3xl' />
 
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden glass flex items-center justify-center">
-                <p className="font-mono text-xs text-muted-foreground text-center px-8">
-                  Adicione uma foto do seu workspace ou sua foto aqui
-                </p>
+                <img
+                  src={workspace}
+                  alt="Workspace do desenvolvedor"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  width={1024}
+                  height={1280}
+                />
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-transparent to-accent/20 mix-blend-overlay" />
               </div>
 
