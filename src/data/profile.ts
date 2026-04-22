@@ -1,5 +1,5 @@
 export const profile = {
-  name: "Luan Henrique Neumann",
+  name: "Luan Neumann",
   title: "Desenvolvedor Full Stack",
   tagline: "Construindo sistemas reais, com impacto mensurável e código que dura.",
   shortBio:
@@ -57,7 +57,7 @@ export const experiences = [
     company: "Abase Sistemas Ltda",
     logo: "company-2",
     role: "Desenvolvedor Full Stack",
-    period: "— — — —",
+    period: "Nov 2023 - Mar 2025 ",
     description:
       "Desenvolvimento de sistemas para gestão educacional em prefeituras de todo o Brasil. O produto atendia mais de 200 municípios e mais de 1 milhão de usuários, cobrindo matrícula, notas, frequência, atividades e comunicados — similar a um Google Classroom completo integrado ao ambiente escolar público.",
     highlights: [
