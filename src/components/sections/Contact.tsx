@@ -1,12 +1,11 @@
 import { motion } from "framer-motion"
-import { Mail, Github, Linkedin, Twitter, ArrowUpRight } from "lucide-react"
+import { Mail, Github, Linkedin, ArrowUpRight } from "lucide-react"
 import { profile } from "@/data/profile"
 
 const links = [
   { icon: Mail, label: "Email", href: `mailto:${profile.email}`, value: profile.email},
-  { icon: Github, label: "GitHub", href: profile.github, value: "@seuusuario"},
-  { icon: Linkedin, label: "LinkedIn", href: profile.linkedin, value: '/in/seuusuario'},
-  { icon: Twitter, label: "Twitter", href: profile.twitter, value: '@seuusuario'},
+  { icon: Github, label: "GitHub", href: profile.github, value: "@Luan-Neumann-Dev"},
+  { icon: Linkedin, label: "LinkedIn", href: profile.linkedin, value: '/in/Luan-Neumann-Dev'},
 ]
 
 const Contact = () => {
