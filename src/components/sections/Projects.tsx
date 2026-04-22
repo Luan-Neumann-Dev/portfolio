@@ -82,16 +82,39 @@ const Projects = () => {
                 </div>
 
                 <div className='absolute bottom-0 left-0 right-0 p-6 space-y-3'>
-                  <p className='font-mono text-[11px]'>
+                  <p className='font-mono text-[11px] text-accent uppercase tracking-wider opacity-90'>
                     {p.subtitle}
                   </p>
+                  
+                  <h3
+                    className={cn(
+                      "font-display font-bold leading-tight",
+                        p.size === 'lg' ? "text-3xl md:text-4xl" : "text-xl md:text-2xl"
+                    )}
+                  >
+                    {p.title}
+                  </h3>
+                  <div className='flex flex-wrap gap-1.5 pt-1'>
+                    {p.techs.slice(0, 3).map((tech) => (
+                      <span
+                        key={tech}
+                        className='px-2.5 py-0.5 text-[10px] font-mono rounded-full glass border border-primary/20'
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {p.techs.length > 3 && (
+                      <span className='px-2.5 py-0.5 text-[10px] font-mono rounded-full text-muted-foreground'>
+                        +{p.techs.length - 3}
+                      </span>
+                    ) }
+                  </div>
                 </div>
               </Link>
             </motion.div>
           ))}
         </div>
       </div>
-
     </section>
   )
 }
