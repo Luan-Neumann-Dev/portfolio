@@ -37,7 +37,7 @@ const Navbar = () => {
           )}
         >
           <Link to='/' className="font-display font-bold text-lg tracking-tight">
-            <span className="text-gradient">seu</span>
+            <span className="text-gradient">Luan</span>
             <span className="text-foreground">.dev</span>
           </Link>
 
