@@ -1,11 +1,18 @@
 import {motion} from 'framer-motion';
 import { ArrowRight, Github, Sparkles} from 'lucide-react'
 import { profile } from '@/data/profile';
+import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
   return (
     <section className='relative min-h-screen pt-32 pb-20 overflow-hidden'>
       <div className='absolute inset-0 -z-10'>
+        <img
+          src={heroBg}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
+          aria-hidden
+        />
         <div className='absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background'/>
         <div className='absolute inset-0 grid-bg'/>
       </div>
