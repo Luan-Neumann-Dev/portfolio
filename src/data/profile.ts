@@ -1,3 +1,5 @@
+import { href } from "react-router-dom";
+
 export const profile = {
   name: "Luan Neumann",
   title: "Desenvolvedor Full Stack",
@@ -73,10 +75,16 @@ export const education = [
     institution: "UNIJUÍ — Universidade Regional do Noroeste do Estado do Rio Grande do Sul",
     degree: "Bacharelado em Engenharia de Software",
     period: "2022 — 2027 (em andamento)",
+    logo: 'edu-1'
   },
 ];
 
 export const certifications = [
-  { id: "cert1", name: "Nome da Certificação", issuer: "Emissor", year: 2023 },
-  { id: "cert2", name: "Nome da Certificação", issuer: "Emissor", year: 2022 },
+  { id: "cert1", name: "C# – Programação Orientada a Objetos e APIs", issuer: "Udemy", year: 2024, image:"udemy-c", href: 'https://drive.google.com/file/d/1lgIPsf4zyXhkI7LVzt0hQK0rZeuGE13E/view' },
+  { id: "cert2", name: "Formação Front-End – HTML, CSS e JavaScript", issuer: "Udemy", year: 2024, image:"udemy-front", href: 'https://drive.google.com/file/d/16kkTofx47lf6UidVPrrXNH9D9W5Oc08p/view' },
+  { id: "cert3", name: "JavaScript – Fundamentos e Desenvolvimento Avançado", issuer: "Udemy", year: 2024, image:"udemy-js", href: 'https://drive.google.com/file/d/14aSIPRmqgUPvoTbdLd2WeW_jptWu_Xn_/view' },
+  { id: "cert4", name: "React.js – Desenvolvimento de Interfaces Modernas", issuer: "Udemy", year: 2024, image:"udemy-react", href: 'https://drive.google.com/file/d/1hSf-de07RF57o-Ovy2hlNwFfnLMEW7yB/view' },
+  { id: "cert5", name: "Node.js – Desenvolvimento Backend com Express e APIs", issuer: "Udemy", year: 2024, image: "udemy-node", href: 'https://drive.google.com/file/d/1hStHlK7Kn65vAHQyRvEewPptxebD0_19/view' },
+  { id: "cert6", name: "Fundamentos do PHP", issuer: "Rocketseat", year: 2025, image: 'rocket-php', href: 'https://app.rocketseat.com.br/certificates/66c04dd1-b8a3-4172-9fa3-140b1e1bb719'},
+  { id: "cert7", name: "Figma para Devs", issuer: "Rocketseat", year: 2026, image: 'rocket-figma', href: 'https://app.rocketseat.com.br/certificates/54e19cfd-6b7b-4c88-bec8-5b0b6fae9767'}
 ];
