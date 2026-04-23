@@ -1,5 +1,3 @@
-import { href } from "react-router-dom";
-
 export const profile = {
   name: "Luan Neumann",
   title: "Desenvolvedor Full Stack",
