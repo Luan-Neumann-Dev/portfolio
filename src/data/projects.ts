@@ -1,5 +1,6 @@
 import thumb1 from "@/assets/thumb1.png";
 import thumb2 from "@/assets/thumb2.png";
+import thumb3 from "@/assets/thumb3.png";
 import p101 from "@/assets/p1-01.png"
 import p102 from "@/assets/p1-02.png"
 import p103 from "@/assets/p1-03.png"
@@ -7,6 +8,11 @@ import p104 from "@/assets/p1-04.png"
 import p105 from "@/assets/p1-05.png"
 
 import p201 from "@/assets/p2-01.png"
+
+import p301 from "@/assets/p3-01.png"
+import p302 from "@/assets/p3-02.png"
+import p303 from "@/assets/p3-03.png"
+import p304 from "@/assets/p3-04.png"
 
 // =============================================
 // PROJETOS
@@ -119,12 +125,8 @@ export const projects: Project[] = [
     description:
       "Aplicação Laravel 12 para criar campanhas, gerenciar listas de assinantes, agendar envios em massa via jobs na fila e rastrear taxas de abertura e clique por destinatário.",
     techs: ["Laravel 12", "PHP 8.2", "Blade", "Tailwind CSS", "SQLite", "Pest"],
-    thumbnail:
-      "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=800&q=80",
-    images: [
-      "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=800&q=80",
-      "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=800&q=80",
-    ],
+    thumbnail: thumb3,
+    images: [ p301, p302, p303, p304 ],
     fullDescription:
       "Email Blast é uma plataforma de email marketing self-hosted construída com Laravel 12. Os usuários podem gerenciar listas de assinantes, criar templates HTML reutilizáveis e montar campanhas por meio de um wizard multi-etapas. Ao publicar uma campanha, um job fan-out (SendEmailsCampaignJob) é disparado e cria um job individual na fila por assinante (SendEmailCampaignJob), cada um agendado de forma independente via Mail::later(). Taxas de abertura e clique são rastreadas por registro de CampaignMail usando um endpoint de pixel e um controller de redirecionamento.",
     problem:

@@ -11,7 +11,7 @@ export const profile = {
   location: "Ijuí, RS — Brasil",
   email: "luan.neumann.dev@gmail.com",
   github: "https://github.com/Luan-Neumann-Dev",
-  linkedin: "https://linkedin.com/in/Luan-Neumann-Dev",
+  linkedin: "https://linkedin.com/in/luan-henrique-neumann-dev", 
 };
 
 export const stack = [
