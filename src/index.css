@@ -123,6 +123,15 @@
   .glow-purple { box-shadow: var(--shadow-glow); }
   .glow-cyan { box-shadow: var(--shadow-glow-cyan); }
 
+  /* Esconde a scrollbar nativa mantendo o scroll (carrossel) */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
   /* Grid decorativo de fundo */
   .grid-bg {
     background-image:
