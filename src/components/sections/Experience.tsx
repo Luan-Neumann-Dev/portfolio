@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
-import { experiences } from "@/data/profile"
+import { useContent } from "@/i18n/useContent"
+import { useUI } from "@/i18n/ui"
 
 import c1 from "@/assets/company-1.png";
 import c2 from "@/assets/company-2.png";
@@ -10,6 +11,9 @@ const logos: Record<string, string> = {
 };
 
 const Experience = () => {
+  const { experiences } = useContent();
+  const ui = useUI();
+
   return (
     <section id="experiencia" className="relative py-32">
       <div className="container">
@@ -21,10 +25,10 @@ const Experience = () => {
           className="max-w-2xl mb-16"
         >
           <p className="font-mono text-xs text-accent uppercase tracking-widest mb-3">
-            {"// jornada"}
+            {ui.experience.tag}
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-bold leading-tight">
-            Lugares onde construí <span className="text-gradient">coisas reais</span>.
+            {ui.experience.heading.pre}<span className="text-gradient">{ui.experience.heading.highlight}</span>{ui.experience.heading.post}
           </h2>
         </motion.div>
 

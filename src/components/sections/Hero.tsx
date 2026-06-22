@@ -1,10 +1,14 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Github, Sparkles } from "lucide-react";
 import portrait from "@/assets/hero-portrait.png";
-import { profile } from "@/data/profile";
 import heroBg from "@/assets/hero-bg.jpg";
+import { useContent } from "@/i18n/useContent";
+import { useUI } from "@/i18n/ui";
 
 const Hero = () => {
+  const { profile } = useContent();
+  const ui = useUI();
+
   return (
     <section className="relative min-h-screen pt-32 pb-20 overflow-hidden">
       <div className="absolute inset-0 -z-10">
@@ -28,7 +32,7 @@ const Hero = () => {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm font-medium text-muted-foreground">
               <Sparkles className="text-accent w-3.5 h-3.5" />
-              Disponível para novos projetos
+              {ui.hero.available}
             </div>
 
             <h1 className="font-display font-bold leading-[0.95] tracking-tight">
@@ -56,7 +60,7 @@ const Hero = () => {
                 href="#projetos"
                 className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-primary text-primary-foreground font-medium shadow-glow hover:shadow-glow-cyan transition-all duration-500 hover:scale-105"
               >
-                Ver projetos
+                {ui.hero.viewProjects}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
 
@@ -84,7 +88,7 @@ const Hero = () => {
               <div className="relative h-full rounded-3xl overflow-hidden glass shadow-elegant">
                 <img
                   src={portrait}
-                  alt={`Retrato de ${profile.name}`}
+                  alt={`${ui.hero.portraitAlt} ${profile.name}`}
                   className="w-full h-full object-cover"
                   width={1024}
                   height={1280}
@@ -120,9 +124,9 @@ const Hero = () => {
                 className="absolute -right-4 bottom-20 glass-card p-3 px-4"
               >
                 <p className="font-mono text-[10px] text-accent uppercase tracking-wider">
-                  Exp
+                  {ui.hero.expLabel}
                 </p>
-                <p className="text-sm font-semibold mt-0.5">2+ anos</p>
+                <p className="text-sm font-semibold mt-0.5">{ui.hero.expValue}</p>
               </motion.div>
 
               <motion.div
@@ -137,7 +141,7 @@ const Hero = () => {
               >
                 <div className="flex items-center gap-2">
                   <span className="h-2 w-2 rounded-full bg-accent animate-pulse shadow-glow-cyan" />
-                  <p className="text-sm font-semibold">Online agora</p>
+                  <p className="text-sm font-semibold">{ui.hero.online}</p>
                 </div>
               </motion.div>
             </div>
@@ -145,12 +149,7 @@ const Hero = () => {
         </div>
 
         <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl">
-          {[
-            { v: "2+", l: "Anos de experiência" },
-            { v: "10+", l: "Sistemas e funcionalidades desenvolvidas" },
-            { v: "14", l: "Tecnologias utilizadas" },
-            { v: "∞", l: "Cafés tomados" },
-          ].map((s, i) => (
+          {ui.hero.stats.map((s, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}

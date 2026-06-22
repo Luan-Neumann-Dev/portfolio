@@ -2,8 +2,9 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
-import { projects } from "@/data/projects";
 import { cn } from '@/lib/utils';
+import { useContent } from '@/i18n/useContent';
+import { useUI } from '@/i18n/ui';
 
 const accentRing: Record<string, string> = {
   purple: "from-primary/40 to-primary-glow/30",
@@ -17,6 +18,8 @@ const EDGE_PADDING = "max(2rem, calc((100vw - 1400px) / 2 + 2rem))";
 const CARD_GAP = 24; // gap-6
 
 const Projects = () => {
+  const { projects } = useContent();
+  const ui = useUI();
   const trackRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -66,18 +69,19 @@ const Projects = () => {
         >
           <div className='max-w-2xl'>
             <p className='font-mono text-xs text-accent uppercase tracking-widest mb-3'>
-              {"// trabalhos selecionados"}
+              {ui.projects.tag}
             </p>
 
             <h2 className='font-display text-4xl md:text-6xl font-bold leading-tight'>
-              Projetos que contam{" "}
-              <span className='text-gradient'>histórias</span>
+              {ui.projects.heading.pre}
+              <span className='text-gradient'>{ui.projects.heading.highlight}</span>
+              {ui.projects.heading.post}
             </h2>
           </div>
 
           <div className='flex flex-col md:items-end gap-6'>
             <p className='text-muted-foreground max-w-sm'>
-              Cada projeto é um problema real, resolvido com decisões técnicas conscientes. Clique para o case study completo.
+              {ui.projects.blurb}
             </p>
 
             {/* Controles do carrossel — desktop */}
@@ -89,7 +93,7 @@ const Projects = () => {
             >
               <button
                 type='button'
-                aria-label='Projetos anteriores'
+                aria-label={ui.projects.prevAria}
                 onClick={() => scrollByCard(-1)}
                 disabled={!canScrollLeft}
                 className='w-11 h-11 rounded-full glass flex items-center justify-center text-foreground transition-all duration-300 hover:bg-primary hover:text-primary-foreground disabled:opacity-30 disabled:pointer-events-none'
@@ -98,7 +102,7 @@ const Projects = () => {
               </button>
               <button
                 type='button'
-                aria-label='Próximos projetos'
+                aria-label={ui.projects.nextAria}
                 onClick={() => scrollByCard(1)}
                 disabled={!canScrollRight}
                 className='w-11 h-11 rounded-full glass flex items-center justify-center text-foreground transition-all duration-300 hover:bg-primary hover:text-primary-foreground disabled:opacity-30 disabled:pointer-events-none'

@@ -2,31 +2,34 @@ import { useEffect } from "react"
 import { Link, useParams, Navigate } from "react-router-dom"
 import { motion } from "framer-motion"
 import { ArrowLeft, ArrowUpRight, Github, ExternalLink } from "lucide-react"
-import { getProjectById, projects } from "@/data/projects"
 import Navbar from "@/components/Navbar"
-
-const sections = [
-  { key: 'fullDescription', label: 'Visão geral' },
-  { key: 'problem', label: 'Problema' },
-  { key: 'solution', label: 'Solução' }
-];
-
-const listSections = [
-  { key: 'decisions', label: 'Decisões técnicas' }, 
-  { key: 'challenges', label: 'Desafios' }, 
-  { key: 'improvements', label: 'Melhorias futuras'},
-];
+import { useContent } from "@/i18n/useContent"
+import { useUI } from "@/i18n/ui"
 
 const ProjectDetail = () => {
   const { id } = useParams();
-  const project = getProjectById(id || "");
-  
+  const { projects } = useContent();
+  const ui = useUI();
+  const project = projects.find((p) => p.id === id);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
-  
+
   if (!project) return <Navigate to="/" replace />
-  
+
+  const sections = [
+    { key: 'fullDescription', label: ui.projectDetail.overview },
+    { key: 'problem', label: ui.projectDetail.problem },
+    { key: 'solution', label: ui.projectDetail.solution },
+  ];
+
+  const listSections = [
+    { key: 'decisions', label: ui.projectDetail.decisions },
+    { key: 'challenges', label: ui.projectDetail.challenges },
+    { key: 'improvements', label: ui.projectDetail.improvements },
+  ];
+
   const currentIdx = projects.findIndex((p) => p.id === project.id);
   const next = projects[(currentIdx + 1) % projects.length];
   
@@ -55,7 +58,7 @@ const ProjectDetail = () => {
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
-              Todos os projetos
+              {ui.projectDetail.allProjects}
             </Link>
 
             <p className="font-mono text-xs text-accent uppercase tracking-widest">
@@ -78,7 +81,7 @@ const ProjectDetail = () => {
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-gradient-primary text-primary-foreground font-medium shadow-glow hover:scale-105 transition-transform"
                 >
-                  <ExternalLink className="w-4 h-4" /> Live demo
+                  <ExternalLink className="w-4 h-4" /> {ui.projectDetail.liveDemo}
                 </a>
               )}
               {project.github && (
@@ -88,7 +91,7 @@ const ProjectDetail = () => {
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-full glass hover:border-primary/40 transition-colors"
                 >
-                  <Github className="w-4 h-4" /> Código
+                  <Github className="w-4 h-4" /> {ui.projectDetail.code}
                 </a>
               )}
             </div>
@@ -104,7 +107,7 @@ const ProjectDetail = () => {
           className="glass-card p-5 flex flex-wrap items-center gap-3"
         >
           <p className="font-mono text-[11px] text-accent uppercase tracking-widest mr-2">
-            Stack:
+            {ui.projectDetail.stackLabel}
           </p>
           {project.techs.map((t) => (
             <span
@@ -144,7 +147,7 @@ const ProjectDetail = () => {
             className="space-y-4"
           >
             <p className="font-mono text-xs text-accent uppercase tracking-widest">
-              04 — Galeria
+              04 — {ui.projectDetail.gallery}
             </p>
             <div className="grid sm:grid-cols-2 gap-4">
               {project.images.map((img, idx) => (
@@ -206,7 +209,7 @@ const ProjectDetail = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/30" />
           <div className="relative h-full flex flex-col justify-center p-10 md:p-16">
             <p className="font-mono text-xs text-accent uppercase tracking-widest mb-3">
-              Próximo projeto
+              {ui.projectDetail.nextProject}
             </p>
             <h3 className="font-display text-4xl md:text-6xl font-bold mb-3">
               {next.title}

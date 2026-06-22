@@ -1,7 +1,11 @@
 import {motion} from 'framer-motion';
-import { stack } from '@/data/profile';
+import { useContent } from '@/i18n/useContent';
+import { useUI } from '@/i18n/ui';
 
 const Stack = () => {
+  const { stack } = useContent();
+  const ui = useUI();
+
   return (
     <section id="stack" className="relative py-32">
       <div className="container">
@@ -13,10 +17,10 @@ const Stack = () => {
           className="max-w-2xl mb-16"
         >
           <p className='font-mono text-xs text-accent uppercase tracking-widest mb-3'>
-            {"// stack"}
+            {ui.stack.tag}
           </p>
           <h2 className='font-display text-4xl md:text-5xl] font-bold leading-tight'>
-            Ferramentas que <span className='text-gradient'>moldam</span> meu trabalho
+            {ui.stack.heading.pre}<span className='text-gradient'>{ui.stack.heading.highlight}</span>{ui.stack.heading.post}
           </h2>
         </motion.div>
 

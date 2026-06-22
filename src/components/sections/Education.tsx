@@ -1,8 +1,9 @@
 import { useMemo, useState } from 'react'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
-import { education, certifications } from '@/data/profile'
 import { Award, ArrowUpRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { useContent } from '@/i18n/useContent'
+import { useUI } from '@/i18n/ui'
 import rocketFigma from "@/assets/rocket-figma.png";
 import rocketPhp from "@/assets/rocket-php.png";
 import rocketPhpFormacao from "@/assets/rocket-php-formacao.jpg";
@@ -42,10 +43,14 @@ const issuerIcons: Record<string, string> = {
 };
 const iconFor = (issuer: string) => issuerIcons[issuer] ?? "📜";
 
-const ALL = "Todos";
+// Stable sentinel for the "all issuers" filter — kept language-independent so
+// switching the language never invalidates the active filter.
+const ALL = "__all__";
 const pad = (n: number) => String(n).padStart(2, "0");
 
 const Education = () => {
+  const { education, certifications } = useContent();
+  const ui = useUI();
   const reduceMotion = useReducedMotion();
   const [filter, setFilter] = useState<string>(ALL);
   const [hovered, setHovered] = useState<string | null>(null);
@@ -53,18 +58,18 @@ const Education = () => {
   // Emissores únicos, derivados dos dados (filtro se atualiza sozinho ao adicionar certificados).
   const issuers = useMemo(
     () => Array.from(new Set(certifications.map((c) => c.issuer))),
-    []
+    [certifications]
   );
 
   const sorted = useMemo(
     () => [...certifications].sort((a, b) => b.year - a.year),
-    []
+    [certifications]
   );
 
   // Soma a carga horária apenas dos certificados que têm o dado disponível.
   const totalHours = useMemo(
     () => certifications.reduce((sum, c) => sum + (c.hours ?? 0), 0),
-    []
+    [certifications]
   );
 
   const visible = useMemo(
@@ -88,10 +93,10 @@ const Education = () => {
           className='max-w-2xl mb-16'
         >
           <p className='font-mono text-xs text-accent uppercase tracking-widest mb-3'>
-            {"// formação"}
+            {ui.education.tag}
           </p>
           <h2 className='font-display text-4xl md:text-5xl font-bold leading-tight'>
-            Aprendizado <span className='text-gradient'>contínuo</span>
+            {ui.education.heading.pre}<span className='text-gradient'>{ui.education.heading.highlight}</span>{ui.education.heading.post}
           </h2>
         </motion.div>
 
@@ -138,16 +143,16 @@ const Education = () => {
                 <div className='w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center shadow-glow'>
                   <Award className='w-5 h-5 text-primary-foreground' />
                 </div>
-                <h3 className='font-display text-xl font-bold'>Certificações</h3>
+                <h3 className='font-display text-xl font-bold'>{ui.education.certifications}</h3>
               </div>
               <p className='font-mono text-xs text-muted-foreground text-right'>
                 <span className='text-gradient font-bold text-base'>{pad(certifications.length)}</span>{" "}
-                no total
+                {ui.education.total}
                 {totalHours > 0 && (
                   <>
                     {" · "}
                     <span className='text-gradient font-bold text-base'>{totalHours}h</span>{" "}
-                    de estudo
+                    {ui.education.study}
                   </>
                 )}
               </p>
@@ -171,7 +176,7 @@ const Education = () => {
                     )}
                   >
                     {issuer !== ALL && <span aria-hidden>{iconFor(issuer)}</span>}
-                    <span>{issuer}</span>
+                    <span>{issuer === ALL ? ui.education.all : issuer}</span>
                     <span
                       className={cn(
                         'tabular-nums',
@@ -199,7 +204,7 @@ const Education = () => {
                     href={c.href}
                     target='_blank'
                     rel='noopener noreferrer'
-                    aria-label={`Ver certificado: ${c.name} — ${c.issuer}, ${c.year} (abre em nova aba)`}
+                    aria-label={`${ui.education.certAriaPrefix} ${c.name} — ${c.issuer}, ${c.year} ${ui.education.certAriaSuffix}`}
                     onMouseEnter={() => setHovered(c.id)}
                     onMouseLeave={() => setHovered((h) => (h === c.id ? null : h))}
                     className='group relative flex items-center gap-3 rounded-2xl bg-secondary/40 border border-primary/10 p-3 hover:border-primary/40 hover:bg-secondary/70 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring'

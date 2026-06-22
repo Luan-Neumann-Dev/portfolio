@@ -1,19 +1,22 @@
 import { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { cn } from "@/lib/utils"
-
-const links = [
-  { href: '#sobre', label: 'Sobre' },
-  { href: "#stack", label: "Stack" },
-  { href: "#projetos", label: "Projetos" },
-  { href: "#experiencia", label: "Experiência" },
-  { href: "#contato", label: "Contato" },
-]
+import { useUI } from "@/i18n/ui"
+import LanguageToggle from "@/components/LanguageToggle"
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === '/';
+  const ui = useUI();
+
+  const links = [
+    { href: '#sobre', label: ui.nav.about },
+    { href: "#stack", label: ui.nav.stack },
+    { href: "#projetos", label: ui.nav.projects },
+    { href: "#experiencia", label: ui.nav.experience },
+    { href: "#contato", label: ui.nav.contact },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -56,12 +59,16 @@ const Navbar = () => {
             </ul>
           )}
 
-          <a
-            href={isHome ? "#contato" : "/"}
-            className="text-sm font-medium px-4 py-2 rounded-full bg-gradient-primary text-primary-foreground hover:scale-105 transition-transform shadow-glow"
-          >
-            {isHome ? "Vamos conversar" : "← Voltar"}
-          </a>
+          <div className="flex items-center gap-3">
+            <LanguageToggle />
+
+            <a
+              href={isHome ? "#contato" : "/"}
+              className="text-sm font-medium px-4 py-2 rounded-full bg-gradient-primary text-primary-foreground hover:scale-105 transition-transform shadow-glow"
+            >
+              {isHome ? ui.nav.cta : ui.nav.back}
+            </a>
+          </div>
         </nav>
       </div>
     </header>
