@@ -5,6 +5,11 @@ import { Award, ArrowUpRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import rocketFigma from "@/assets/rocket-figma.png";
 import rocketPhp from "@/assets/rocket-php.png";
+import rocketPhpFormacao from "@/assets/rocket-php-formacao.jpg";
+import rocketLaravel from "@/assets/rocket-laravel.jpg";
+import rocketLaravelApi from "@/assets/rocket-laravel-api.jpg";
+import rocketLivewire from "@/assets/rocket-livewire.jpg";
+import rocketTests from "@/assets/rocket-tests.jpg";
 import udemyC from "@/assets/udemy-c.png"
 import udemyFront from "@/assets/udemy-front.png"
 import udemyReact from "@/assets/udemy-react.png"
@@ -18,6 +23,11 @@ const eduLogos: Record<string, string> = {
 
 const certImages: Record<string, string> = {
   "rocket-php": rocketPhp,
+  "rocket-php-formacao": rocketPhpFormacao,
+  "rocket-laravel": rocketLaravel,
+  "rocket-laravel-api": rocketLaravelApi,
+  "rocket-livewire": rocketLivewire,
+  "rocket-tests": rocketTests,
   "rocket-figma": rocketFigma,
   "udemy-c": udemyC,
   "udemy-front": udemyFront,
@@ -48,6 +58,12 @@ const Education = () => {
 
   const sorted = useMemo(
     () => [...certifications].sort((a, b) => b.year - a.year),
+    []
+  );
+
+  // Soma a carga horária apenas dos certificados que têm o dado disponível.
+  const totalHours = useMemo(
+    () => certifications.reduce((sum, c) => sum + (c.hours ?? 0), 0),
     []
   );
 
@@ -124,9 +140,16 @@ const Education = () => {
                 </div>
                 <h3 className='font-display text-xl font-bold'>Certificações</h3>
               </div>
-              <p className='font-mono text-xs text-muted-foreground'>
+              <p className='font-mono text-xs text-muted-foreground text-right'>
                 <span className='text-gradient font-bold text-base'>{pad(certifications.length)}</span>{" "}
                 no total
+                {totalHours > 0 && (
+                  <>
+                    {" · "}
+                    <span className='text-gradient font-bold text-base'>{totalHours}h</span>{" "}
+                    de estudo
+                  </>
+                )}
               </p>
             </div>
 
@@ -199,6 +222,7 @@ const Education = () => {
                       </span>
                       <span className='block font-mono text-[10px] text-accent uppercase tracking-widest mt-1'>
                         {c.issuer} · {c.year}
+                        {c.hours != null && ` · ${c.hours}h`}
                       </span>
                     </span>
 

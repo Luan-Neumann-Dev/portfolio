@@ -77,12 +77,28 @@ export const education = [
   },
 ];
 
-export const certifications = [
+export type Certification = {
+  id: string;
+  name: string;
+  issuer: string;
+  year: number;
+  image: string;
+  href: string;
+  /** Carga horária em horas. Opcional: omitir enquanto o dado não estiver disponível. */
+  hours?: number;
+};
+
+export const certifications: Certification[] = [
   { id: "cert1", name: "C# – Programação Orientada a Objetos e APIs", issuer: "Udemy", year: 2024, image:"udemy-c", href: 'https://drive.google.com/file/d/1lgIPsf4zyXhkI7LVzt0hQK0rZeuGE13E/view' },
   { id: "cert2", name: "Formação Front-End – HTML, CSS e JavaScript", issuer: "Udemy", year: 2024, image:"udemy-front", href: 'https://drive.google.com/file/d/16kkTofx47lf6UidVPrrXNH9D9W5Oc08p/view' },
   { id: "cert3", name: "JavaScript – Fundamentos e Desenvolvimento Avançado", issuer: "Udemy", year: 2024, image:"udemy-js", href: 'https://drive.google.com/file/d/14aSIPRmqgUPvoTbdLd2WeW_jptWu_Xn_/view' },
   { id: "cert4", name: "React.js – Desenvolvimento de Interfaces Modernas", issuer: "Udemy", year: 2024, image:"udemy-react", href: 'https://drive.google.com/file/d/1hSf-de07RF57o-Ovy2hlNwFfnLMEW7yB/view' },
   { id: "cert5", name: "Node.js – Desenvolvimento Backend com Express e APIs", issuer: "Udemy", year: 2024, image: "udemy-node", href: 'https://drive.google.com/file/d/1hStHlK7Kn65vAHQyRvEewPptxebD0_19/view' },
-  { id: "cert6", name: "Fundamentos do PHP", issuer: "Rocketseat", year: 2025, image: 'rocket-php', href: 'https://app.rocketseat.com.br/certificates/66c04dd1-b8a3-4172-9fa3-140b1e1bb719'},
-  { id: "cert7", name: "Figma para Devs", issuer: "Rocketseat", year: 2026, image: 'rocket-figma', href: 'https://app.rocketseat.com.br/certificates/54e19cfd-6b7b-4c88-bec8-5b0b6fae9767'}
+  { id: "cert6", name: "Fundamentos do PHP", issuer: "Rocketseat", year: 2025, image: 'rocket-php', hours: 21, href: 'https://app.rocketseat.com.br/certificates/66c04dd1-b8a3-4172-9fa3-140b1e1bb719'},
+  { id: "cert7", name: "Figma para Devs", issuer: "Rocketseat", year: 2026, image: 'rocket-figma', href: 'https://app.rocketseat.com.br/certificates/54e19cfd-6b7b-4c88-bec8-5b0b6fae9767'},
+  { id: "cert8", name: "PHP – Formação Completa", issuer: "Rocketseat", year: 2026, image: 'rocket-php-formacao', hours: 126, href: 'https://app.rocketseat.com.br/certificates/2b3b1951-0869-4b3f-af6a-87ebb92b1aca'},
+  { id: "cert9", name: "Laravel: dos fundamentos à prática em projetos reais", issuer: "Rocketseat", year: 2026, image: 'rocket-laravel', hours: 18, href: 'https://app.rocketseat.com.br/certificates/26b5808f-f063-4b2c-ad1e-ee037f43c18f'},
+  { id: "cert10", name: "Criando minha primeira API com Laravel", issuer: "Rocketseat", year: 2026, image: 'rocket-laravel-api', hours: 7, href: 'https://app.rocketseat.com.br/certificates/3ad51346-b440-49aa-899d-2174be99dcef'},
+  { id: "cert11", name: "Livewire", issuer: "Rocketseat", year: 2026, image: 'rocket-livewire', hours: 7, href: 'https://app.rocketseat.com.br/certificates/1da9fd88-920d-4c96-bbd4-4e7229b791b8'},
+  { id: "cert12", name: "Testes automatizados com PHPUnit e Pest", issuer: "Rocketseat", year: 2026, image: 'rocket-tests', hours: 8, href: 'https://app.rocketseat.com.br/certificates/c762a080-6d71-454b-8d1c-66077e67e4db'}
 ];
