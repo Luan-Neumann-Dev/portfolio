@@ -1,9 +1,13 @@
 import { motion } from 'framer-motion'
-import { profile } from '@/data/profile'
 import { MapPin, Mail } from 'lucide-react'
 import workspace from "@/assets/about-workspace.jpg";
+import { useContent } from '@/i18n/useContent'
+import { useUI } from '@/i18n/ui'
 
 const About = () => {
+  const { profile } = useContent();
+  const ui = useUI();
+
   return (
     <section id='sobre' className='relative py-32 overflow-hidden'>
       <div className='container'>
@@ -21,7 +25,7 @@ const About = () => {
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden glass flex items-center justify-center">
                 <img
                   src={workspace}
-                  alt="Workspace do desenvolvedor"
+                  alt={ui.about.workspaceAlt}
                   className="w-full h-full object-cover"
                   loading="lazy"
                   width={1024}
@@ -33,7 +37,7 @@ const About = () => {
               <div className='absolute -bottom-8 -right-4 lg:-right-12 max-w-[280px] glass-card p-5'>
                 <p className='font-mono text-xs text-accent mb-2'>// philosophy</p>
                 <p className='text-sm leading-relaxed'>
-                  "Código bem escrito é uma forma de empatia"
+                  {ui.about.quote}
                 </p>
               </div>
             </div>
@@ -48,13 +52,13 @@ const About = () => {
           >
             <div className='space-y-3'>
               <p className='font-mono text-xs text-accent uppercase tracking-widest'>
-                {"// sobre mim"}
+                {ui.about.tag}
               </p>
 
               <h2 className='font-display text-4xl md:text-6xl font-bold leading-tight'>
-                Engenharia com{" "}
-                <span className='text-gradient'>propósitos</span>{" "}
-                e estética.
+                {ui.about.heading.pre}
+                <span className='text-gradient'>{ui.about.heading.highlight}</span>
+                {ui.about.heading.post}
               </h2>
             </div>
 

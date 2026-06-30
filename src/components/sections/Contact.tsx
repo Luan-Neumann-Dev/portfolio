@@ -1,14 +1,18 @@
 import { motion } from "framer-motion"
 import { Mail, Github, Linkedin, ArrowUpRight } from "lucide-react"
-import { profile } from "@/data/profile"
-
-const links = [
-  { icon: Mail, label: "Email", href: `mailto:${profile.email}`, value: profile.email},
-  { icon: Github, label: "GitHub", href: profile.github, value: "@Luan-Neumann-Dev"},
-  { icon: Linkedin, label: "LinkedIn", href: profile.linkedin, value: '/in/Luan-Neumann-Dev'},
-]
+import { useContent } from "@/i18n/useContent"
+import { useUI } from "@/i18n/ui"
 
 const Contact = () => {
+  const { profile } = useContent();
+  const ui = useUI();
+
+  const links = [
+    { icon: Mail, label: "Email", href: `mailto:${profile.email}`, value: profile.email},
+    { icon: Github, label: "GitHub", href: profile.github, value: "@Luan-Neumann-Dev"},
+    { icon: Linkedin, label: "LinkedIn", href: profile.linkedin, value: '/in/Luan-Neumann-Dev'},
+  ];
+
   return (
     <section id="contato" className="relative py-32">
       <div className="container">
@@ -25,17 +29,17 @@ const Contact = () => {
               transition={{ duration: 0.6 }}
             >
               <p className="font-mono text-xs text-accent uppercase tracking-widest mb-3">
-                {"// vamos construir"}
+                {ui.contact.tag}
               </p>
 
               <h2 className="font-display text-4xl md:text-5xl font-bold leading-tight mb-5">
-                Tem uma ideia?{" "}
-                <span className="text-gradient">Vamos conversar.</span>
+                {ui.contact.heading.pre}
+                <span className="text-gradient">{ui.contact.heading.highlight}</span>
+                {ui.contact.heading.post}
               </h2>
 
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Estou aberto para projetos freelance, posições full-time e colaborações em open source.
-                Geralmente respondo em até 24h.
+                {ui.contact.blurb}
               </p>
 
               <a
@@ -81,7 +85,7 @@ const Contact = () => {
         </div>
 
         <footer className="mt-16 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} {profile.name}. Construído com café e curiosidade.</p>
+          <p>© {new Date().getFullYear()} {profile.name}. {ui.contact.footerNote}</p>
           <p className="font-mono">v1.0.0 — last deploy: today</p>
         </footer>
       </div>
