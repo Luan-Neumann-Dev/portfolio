@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin, MapPin, Sparkles } from "lucide-react";
 import portrait from "@/assets/luan-portrait.webp";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/hero-bg.webp";
 import { useContent } from "@/i18n/useContent";
 import { useUI } from "@/i18n/ui";
 
