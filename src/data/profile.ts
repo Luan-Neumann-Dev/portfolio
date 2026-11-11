@@ -53,59 +53,60 @@ export const getProfile = (lang: Lang): Profile => ({
 // Stack
 // ---------------------------------------------------------------------------
 
-type StackCategory = "language" | "backend" | "frontend" | "database" | "devops";
+type StackGroupId = "core" | "also";
 
-const stackBase: { name: string; level: number; category: StackCategory }[] = [
-  // Languages
-  { name: "PHP", level: 72, category: "language" },
-  { name: "JavaScript", level: 70, category: "language" },
-  { name: "TypeScript", level: 60, category: "language" },
-  { name: "C#", level: 55, category: "language" },
+type TechData = { name: string; usedAt: Localized<string> };
 
-  // Backend
-  { name: "Laravel", level: 85, category: "backend" },
-  { name: ".NET", level: 60, category: "backend" },
-  { name: "NestJS", level: 45, category: "backend" },
-
-  // Frontend
-  { name: "React", level: 75, category: "frontend" },
-  { name: "Next.js", level: 65, category: "frontend" },
-  { name: "Tailwind CSS", level: 85, category: "frontend" },
-  { name: "Ext.js", level: 55, category: "frontend" },
-
-  // Database
-  { name: "PostgreSQL", level: 80, category: "database" },
-  { name: "MySQL", level: 78, category: "database" },
-  { name: "Prisma", level: 50, category: "database" },
-
-  // DevOps / Infra
-  { name: "Docker", level: 45, category: "devops" },
+const stackData: { id: StackGroupId; techs: TechData[] }[] = [
+  {
+    id: "core",
+    techs: [
+      { name: "Laravel", usedAt: { en: "ZenFisio · Email Blast · Habit Tracker", pt: "ZenFisio · Email Blast · Habit Tracker" } },
+      { name: "PHP", usedAt: { en: "ZenFisio, daily since 2025", pt: "ZenFisio, no dia a dia desde 2025" } },
+      { name: "PostgreSQL", usedAt: { en: "ZenFisio · Abase · Cifrão", pt: "ZenFisio · Abase · Cifrão" } },
+      { name: "MySQL", usedAt: { en: "ZenFisio", pt: "ZenFisio" } },
+      { name: "Livewire", usedAt: { en: "ZenFisio design system", pt: "Design system da ZenFisio" } },
+      { name: "REST APIs", usedAt: { en: "ZenFisio · Abase · FinanceHub", pt: "ZenFisio · Abase · FinanceHub" } },
+      { name: "PHPUnit · Pest", usedAt: { en: "ZenFisio · Email Blast", pt: "ZenFisio · Email Blast" } },
+      { name: "Tailwind CSS", usedAt: { en: "ZenFisio · every personal project", pt: "ZenFisio · todos os projetos pessoais" } },
+    ],
+  },
+  {
+    id: "also",
+    techs: [
+      { name: "TypeScript", usedAt: { en: "Patient app · LN Veículos · Cifrão", pt: "App do paciente · LN Veículos · Cifrão" } },
+      { name: "React", usedAt: { en: "LN Veículos · Cifrão", pt: "LN Veículos · Cifrão" } },
+      { name: "React Native · Expo", usedAt: { en: "ZenFisio patient app", pt: "App do paciente da ZenFisio" } },
+      { name: "Next.js", usedAt: { en: "LN Veículos · Cifrão", pt: "LN Veículos · Cifrão" } },
+      { name: "Node.js · NestJS", usedAt: { en: "ZenFisio e-signature API · Cifrão", pt: "API de assinatura da ZenFisio · Cifrão" } },
+      { name: "Prisma", usedAt: { en: "Cifrão · FinanceHub", pt: "Cifrão · FinanceHub" } },
+      { name: "Cloudflare Workers", usedAt: { en: "LN Veículos (D1, R2)", pt: "LN Veículos (D1, R2)" } },
+      { name: "C# · .NET", usedAt: { en: "Abase, 2023–2025", pt: "Abase, 2023–2025" } },
+      { name: "Docker", usedAt: { en: "Local environments and personal projects", pt: "Ambientes locais e projetos pessoais" } },
+      { name: "Claude Code", usedAt: { en: "AI-assisted development, every day", pt: "Desenvolvimento com IA, todos os dias" } },
+    ],
+  },
 ];
 
-const categoryLabels: Localized<Record<StackCategory, string>> = {
+const stackGroupText: Localized<Record<StackGroupId, { title: string; blurb: string }>> = {
   en: {
-    language: "Language",
-    backend: "Backend",
-    frontend: "Frontend",
-    database: "Database",
-    devops: "DevOps",
+    core: { title: "Core stack", blurb: "What I use every day in production." },
+    also: { title: "Also working with", blurb: "Used at work and in my own projects." },
   },
   pt: {
-    language: "Linguagem",
-    backend: "Backend",
-    frontend: "Frontend",
-    database: "Banco",
-    devops: "DevOps",
+    core: { title: "Stack principal", blurb: "O que uso todos os dias em produção." },
+    also: { title: "Também trabalho com", blurb: "Usadas no trabalho e nos meus projetos." },
   },
 };
 
-export type Tech = { name: string; level: number; category: string };
+export type Tech = { name: string; usedAt: string };
+export type StackGroup = { id: StackGroupId; title: string; blurb: string; techs: Tech[] };
 
-export const getStack = (lang: Lang): Tech[] =>
-  stackBase.map((tech) => ({
-    name: tech.name,
-    level: tech.level,
-    category: categoryLabels[lang][tech.category],
+export const getStack = (lang: Lang): StackGroup[] =>
+  stackData.map((group) => ({
+    id: group.id,
+    ...stackGroupText[lang][group.id],
+    techs: group.techs.map((tech) => ({ name: tech.name, usedAt: tech.usedAt[lang] })),
   }));
 
 // ---------------------------------------------------------------------------
