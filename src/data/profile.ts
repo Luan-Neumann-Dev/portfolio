@@ -75,7 +75,7 @@ const stackData: { id: StackGroupId; techs: TechData[] }[] = [
     id: "also",
     techs: [
       { name: "TypeScript", usedAt: { en: "Patient app · LN Veículos · Cifrão", pt: "App do paciente · LN Veículos · Cifrão" } },
-      { name: "React", usedAt: { en: "LN Veículos · Curious Hat · Cifrão", pt: "LN Veículos · Curious Hat · Cifrão" } },
+      { name: "React", usedAt: { en: "LN Veículos · Cifrão", pt: "LN Veículos · Cifrão" } },
       { name: "React Native · Expo", usedAt: { en: "ZenFisio patient app", pt: "App do paciente da ZenFisio" } },
       { name: "Next.js", usedAt: { en: "LN Veículos · Cifrão", pt: "LN Veículos · Cifrão" } },
       { name: "Node.js · NestJS", usedAt: { en: "ZenFisio e-signature API · Cifrão", pt: "API de assinatura da ZenFisio · Cifrão" } },
