@@ -5,6 +5,7 @@ import {
   getEducation,
   getExperiences,
   getProfile,
+  getPublications,
   getStack,
 } from "@/data/profile";
 import { getProjects } from "@/data/projects";
@@ -19,6 +20,7 @@ export function useContent() {
       experiences: getExperiences(lang),
       education: getEducation(lang),
       certifications: getCertifications(lang),
+      publications: getPublications(lang),
       projects: getProjects(lang),
     }),
     [lang]

@@ -253,39 +253,6 @@ type CertificationData = {
 
 const certificationsData: CertificationData[] = [
   {
-    id: "cert1",
-    name: {
-      en: "C# – Object-Oriented Programming and APIs",
-      pt: "C# – Programação Orientada a Objetos e APIs",
-    },
-    issuer: "Udemy",
-    year: 2024,
-    image: "udemy-c",
-    href: "https://drive.google.com/file/d/1lgIPsf4zyXhkI7LVzt0hQK0rZeuGE13E/view",
-  },
-  {
-    id: "cert2",
-    name: {
-      en: "Front-End Track – HTML, CSS and JavaScript",
-      pt: "Formação Front-End – HTML, CSS e JavaScript",
-    },
-    issuer: "Udemy",
-    year: 2024,
-    image: "udemy-front",
-    href: "https://drive.google.com/file/d/16kkTofx47lf6UidVPrrXNH9D9W5Oc08p/view",
-  },
-  {
-    id: "cert3",
-    name: {
-      en: "JavaScript – Fundamentals and Advanced Development",
-      pt: "JavaScript – Fundamentos e Desenvolvimento Avançado",
-    },
-    issuer: "Udemy",
-    year: 2024,
-    image: "udemy-js",
-    href: "https://drive.google.com/file/d/14aSIPRmqgUPvoTbdLd2WeW_jptWu_Xn_/view",
-  },
-  {
     id: "cert4",
     name: {
       en: "React.js – Building Modern Interfaces",
@@ -295,34 +262,6 @@ const certificationsData: CertificationData[] = [
     year: 2024,
     image: "udemy-react",
     href: "https://drive.google.com/file/d/1hSf-de07RF57o-Ovy2hlNwFfnLMEW7yB/view",
-  },
-  {
-    id: "cert5",
-    name: {
-      en: "Node.js – Backend Development with Express and APIs",
-      pt: "Node.js – Desenvolvimento Backend com Express e APIs",
-    },
-    issuer: "Udemy",
-    year: 2024,
-    image: "udemy-node",
-    href: "https://drive.google.com/file/d/1hStHlK7Kn65vAHQyRvEewPptxebD0_19/view",
-  },
-  {
-    id: "cert6",
-    name: { en: "PHP Fundamentals", pt: "Fundamentos do PHP" },
-    issuer: "Rocketseat",
-    year: 2025,
-    image: "rocket-php",
-    hours: 21,
-    href: "https://app.rocketseat.com.br/certificates/66c04dd1-b8a3-4172-9fa3-140b1e1bb719",
-  },
-  {
-    id: "cert7",
-    name: { en: "Figma for Devs", pt: "Figma para Devs" },
-    issuer: "Rocketseat",
-    year: 2026,
-    image: "rocket-figma",
-    href: "https://app.rocketseat.com.br/certificates/54e19cfd-6b7b-4c88-bec8-5b0b6fae9767",
   },
   {
     id: "cert8",
@@ -344,27 +283,6 @@ const certificationsData: CertificationData[] = [
     image: "rocket-laravel",
     hours: 18,
     href: "https://app.rocketseat.com.br/certificates/26b5808f-f063-4b2c-ad1e-ee037f43c18f",
-  },
-  {
-    id: "cert10",
-    name: {
-      en: "Building my first API with Laravel",
-      pt: "Criando minha primeira API com Laravel",
-    },
-    issuer: "Rocketseat",
-    year: 2026,
-    image: "rocket-laravel-api",
-    hours: 7,
-    href: "https://app.rocketseat.com.br/certificates/3ad51346-b440-49aa-899d-2174be99dcef",
-  },
-  {
-    id: "cert11",
-    name: { en: "Livewire", pt: "Livewire" },
-    issuer: "Rocketseat",
-    year: 2026,
-    image: "rocket-livewire",
-    hours: 7,
-    href: "https://app.rocketseat.com.br/certificates/1da9fd88-920d-4c96-bbd4-4e7229b791b8",
   },
   {
     id: "cert12",
@@ -399,4 +317,53 @@ export const getCertifications = (lang: Lang): Certification[] =>
     image: c.image,
     href: c.href,
     hours: c.hours,
+  }));
+
+// ---------------------------------------------------------------------------
+// Research
+// ---------------------------------------------------------------------------
+
+type PublicationData = {
+  title: string;
+  venue: Localized<string>;
+  year: number;
+  coauthors: string;
+  summary: Localized<string>;
+  href: string;
+};
+
+const publicationsData: PublicationData[] = [
+  {
+    title: "Explorando a Rede LoRa",
+    venue: {
+      en: "Salão do Conhecimento Unijuí — Undergraduate Research Seminar (Engineering)",
+      pt: "Salão do Conhecimento Unijuí — Seminário de Iniciação Científica (Engenharias)",
+    },
+    year: 2023,
+    coauthors: "Guilherme M. Bonfada, Peterson C. Avi",
+    summary: {
+      en: "Research scholarship (PROFAP) in the \"Creative and Smart City\" project. I set up the LoRaWAN infrastructure — a Linux server running ChirpStack and Kerlink iStation gateways — to define the best antenna locations for collecting urban IoT sensor data, replacing a previous setup that failed to communicate with the university's server.",
+      pt: "Bolsa de iniciação científica (PROFAP) no projeto \"Cidade Criativa e Inteligente\". Montei a infraestrutura LoRaWAN — um servidor Linux com ChirpStack e antenas Kerlink iStation — para definir os melhores pontos de instalação das antenas na coleta de dados de sensores IoT urbanos, substituindo uma configuração anterior que não se comunicava com o servidor da universidade.",
+    },
+    href: "https://www.publicacoeseventos.unijui.edu.br/index.php/salaoconhecimento/article/view/24374",
+  },
+];
+
+export type Publication = {
+  title: string;
+  venue: string;
+  year: number;
+  coauthors: string;
+  summary: string;
+  href: string;
+};
+
+export const getPublications = (lang: Lang): Publication[] =>
+  publicationsData.map((p) => ({
+    title: p.title,
+    venue: p.venue[lang],
+    year: p.year,
+    coauthors: p.coauthors,
+    summary: p.summary[lang],
+    href: p.href,
   }));
