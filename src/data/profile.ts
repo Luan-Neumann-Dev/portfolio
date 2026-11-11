@@ -22,20 +22,22 @@ const profileText: Localized<{
 }> = {
   en: {
     title: "Full Stack Developer",
-    tagline: "Building real systems, with measurable impact and code that lasts.",
+    tagline:
+      "Laravel, PHP and PostgreSQL at the core, React and TypeScript on top — building features for a healthtech SaaS used by 100,000+ healthcare professionals.",
     shortBio:
-      "Full stack developer with experience in production systems serving millions of users. I work with Laravel, PHP, React, Next.js and PostgreSQL — always focused on clean code, sustainable architectures and delivering real value.",
+      "Full-stack software engineer with about 3 years of professional experience, specialized in Laravel, PHP and PostgreSQL. I build features for a healthtech SaaS used by 100,000+ healthcare professionals across 3,500+ clinics, and I'm now also working with React Native and TypeScript on the patient mobile app.",
     longBio:
-      "I started programming at 19, when I joined a Software Engineering degree — and I haven't stopped since. In a short time I was already contributing to systems used by more than 1 million users across city governments throughout Brazil. Today, at ZenFisio, I work on both the maintenance and the innovation of a SaaS for physiotherapy clinics with more than 3,500 active clients. I believe good software isn't just code that works — it's code the team understands, the user trusts, and the product can grow on top of.",
+      "I'm on the innovation team at ZenFisio — the team that builds what the product has never had — after starting on the maintenance side of the same codebase. I like owning a feature end to end: drawing the screen, building it and modeling the table behind it are the same job to me. Before that, I spent a year and a half at Abase Sistemas, on public-sector education software used by 1M+ people across 200+ municipalities. I joined ZenFisio without knowing PHP and learned it on the job, so I'm comfortable picking up a new stack. I work AI-assisted with Claude Code every day, from prototyping interfaces to writing tests.",
     location: "Ijuí, RS — Brazil",
   },
   pt: {
     title: "Desenvolvedor Full Stack",
-    tagline: "Construindo sistemas reais, com impacto mensurável e código que dura.",
+    tagline:
+      "Laravel, PHP e PostgreSQL como base, React e TypeScript por cima — construindo funcionalidades para um SaaS de saúde usado por mais de 100.000 profissionais.",
     shortBio:
-      "Desenvolvedor full stack com experiência em sistemas de produção que atendem milhões de usuários. Trabalho com Laravel, PHP, React, Next.js e PostgreSQL — sempre focado em código limpo, arquiteturas sustentáveis e entrega de valor real.",
+      "Desenvolvedor full stack com cerca de 3 anos de experiência profissional, especializado em Laravel, PHP e PostgreSQL. Construo funcionalidades para um SaaS de saúde usado por mais de 100.000 profissionais em mais de 3.500 clínicas e, agora, também trabalho com React Native e TypeScript no app mobile do paciente.",
     longBio:
-      "Comecei a programar aos 19 anos, quando entrei no curso de Engenharia de Software — e desde então não parei mais. Em pouco tempo já estava contribuindo para sistemas usados por mais de 1 milhão de usuários em prefeituras de todo o Brasil. Hoje, na ZenFisio, trabalho tanto na sustentação quanto na inovação de um SaaS para clínicas de fisioterapia com mais de 3.500 clientes ativos. Acredito que bom software não é só código que funciona — é código que o time entende, o usuário confia e o produto consegue crescer em cima.",
+      "Estou no time de inovação da ZenFisio — o time que constrói o que o produto nunca teve — depois de começar pela sustentação da mesma base de código. Gosto de cuidar de uma funcionalidade de ponta a ponta: desenhar a tela, construí-la e modelar a tabela por trás dela são o mesmo trabalho para mim. Antes disso, passei um ano e meio na Abase Sistemas, em software de educação para o setor público usado por mais de 1 milhão de pessoas em mais de 200 municípios. Entrei na ZenFisio sem saber PHP e aprendi no dia a dia, então fico à vontade para pegar uma stack nova. Trabalho com Claude Code todos os dias, da prototipação de interfaces aos testes.",
     location: "Ijuí, RS — Brasil",
   },
 };
@@ -126,41 +128,45 @@ const experiencesData: ExperienceData[] = [
     role: { en: "Full Stack Developer", pt: "Desenvolvedor Full Stack" },
     period: { en: "Mar 2025 — Present", pt: "Mar 2025 — Presente" },
     description: {
-      en: "Development and maintenance of a SaaS for physiotherapy clinics with more than 3,500 active clients. Working on both legacy system maintenance and innovation initiatives, focused on Laravel, PHP and MySQL.",
-      pt: "Desenvolvimento e sustentação de um SaaS para clínicas de fisioterapia com mais de 3.500 clientes ativos. Atuação tanto em manutenção do sistema legado quanto em iniciativas de inovação, com foco em Laravel, PHP e MySQL.",
+      en: "Practice management SaaS for physiotherapy clinics: 100,000+ active healthcare professionals across 3,500+ clinics, with 4M+ patient records. Joined the maintenance team in March 2025 and moved to the innovation team, which builds new features, in early 2026. Laravel, PHP, PostgreSQL, Livewire and React Native.",
+      pt: "SaaS de gestão para clínicas de fisioterapia: mais de 100.000 profissionais de saúde ativos, mais de 3.500 clínicas e mais de 4 milhões de pacientes cadastrados. Entrei na sustentação em março de 2025 e, no início de 2026, fui para o time de inovação, que cria funcionalidades novas. Laravel, PHP, PostgreSQL, Livewire e React Native.",
     },
     highlights: {
       en: [
-        "Built from scratch an internal support panel used by ~25 staff members, centralizing client access and enabling administrative actions such as feature activation and process configuration",
-        "Actively contributing to the development of an electronic signature module integrated into the legacy system",
-        "First hands-on experience with NestJS in a professional setting, building APIs that complement the Laravel ecosystem",
+        "Electronic signature: built the Laravel side of the innovation team's first release — flow, screens, integration with a NestJS signing API and a few endpoints on it. Virtually every client clinic uses it, and about 40% have bought the paid plan",
+        "TISS billing: implemented version 4.02.00 of TISS, the claims standard required by Brazil's health insurance regulator (ANS) — a malformed claim is a payment the clinic never receives",
+        "Internal admin panel: built from scratch the panel all 30 employees use to access client accounts, replacing a shared account with per-user access and audit trail",
+        "Design system: created the new design system for the UI refresh, validated the screens with the Product Owner and implemented them in Blade, Livewire and Tailwind CSS",
+        "Patient app: upgrading the Expo SDK of the React Native (TypeScript) app patients use to book appointments",
       ],
       pt: [
-        "Desenvolvi do zero um painel interno de suporte utilizado por ~25 colaboradores, centralizando acesso aos clientes e permitindo ações administrativas como ativação de features e configuração de processos",
-        "Contribuindo ativamente para o desenvolvimento de um módulo de assinatura eletrônica integrado ao sistema legado",
-        "Primeiro contato com NestJS em ambiente profissional, construindo APIs complementares ao ecossistema Laravel",
+        "Assinatura eletrônica: construí o lado Laravel da primeira entrega do time de inovação — fluxo, telas, integração com uma API de assinatura em NestJS e alguns endpoints nela. Praticamente todas as clínicas usam, e cerca de 40% já compraram o plano pago",
+        "Faturamento TISS: implementei a versão 4.02.00 do padrão TISS da ANS, usado nas guias entre clínicas e convênios — uma guia malformada é um pagamento que a clínica não recebe",
+        "Painel administrativo interno: construí do zero o painel que os 30 funcionários usam para acessar contas de clientes, com login individual e registro de cada ação no lugar de uma conta compartilhada",
+        "Design system: criei o novo design system da revitalização das interfaces, validei as telas com o Product Owner e implementei em Blade, Livewire e Tailwind CSS",
+        "App do paciente: atualizando o SDK do Expo no app em React Native (TypeScript) que os pacientes usam para agendar consultas",
       ],
     },
   },
   {
-    company: "Abase Sistemas Ltda",
+    company: "Abase Sistemas",
     logo: "company-2",
     role: { en: "Full Stack Developer", pt: "Desenvolvedor Full Stack" },
     period: { en: "Nov 2023 — Mar 2025", pt: "Nov 2023 — Mar 2025" },
     description: {
-      en: "Development of education management systems for city governments across Brazil. The product served more than 200 municipalities and over 1 million users, covering enrollment, grades, attendance, assignments and announcements — similar to a full Google Classroom integrated into the public school environment.",
-      pt: "Desenvolvimento de sistemas para gestão educacional em prefeituras de todo o Brasil. O produto atendia mais de 200 municípios e mais de 1 milhão de usuários, cobrindo matrícula, notas, frequência, atividades e comunicados — similar a um Google Classroom completo integrado ao ambiente escolar público.",
+      en: "Software for the public sector. Its education system is used by 1M+ people across 200+ municipalities in Brazil. C#/.NET, Ext JS and PostgreSQL.",
+      pt: "Software para o setor público. O sistema de educação da empresa é usado por mais de 1 milhão de pessoas em mais de 200 municípios do Brasil. C#/.NET, Ext JS e PostgreSQL.",
     },
     highlights: {
       en: [
-        "Built REST APIs with C# .NET consumed by more than 1 million users across 200+ city governments",
-        "Developed interfaces with Ext.js integrated with the education portal APIs",
-        "Worked with PostgreSQL in a high-load, multi-tenant municipal environment",
+        "Built a student portal for municipal schools, backend and frontend: a Classroom-style space where students follow assignments and grades, re-enroll for the next school year and check the weekly school menu",
+        "Developed and maintained features of the education system with C#/.NET (MVC) REST APIs and PostgreSQL, including JWT-based authentication and authorization",
+        "Designed and maintained relational schemas for large volumes of school data in a multi-tenant, municipal environment",
       ],
       pt: [
-        "Construção de APIs REST com C# .NET consumidas por mais de 1 milhão de usuários em +200 prefeituras",
-        "Desenvolvimento de interfaces com Ext.js integradas às APIs do portal educacional",
-        "Trabalho com PostgreSQL em ambiente de alta carga e múltiplos tenants municipais",
+        "Construí um portal do aluno para escolas municipais, backend e frontend: um espaço no estilo Classroom onde os alunos acompanham atividades e notas, fazem a rematrícula para o próximo ano letivo e consultam o cardápio da semana",
+        "Desenvolvi e mantive funcionalidades do sistema de educação com APIs REST em C#/.NET (MVC) e PostgreSQL, incluindo autenticação e autorização com JWT",
+        "Modelei e mantive esquemas relacionais para grandes volumes de dados escolares, em ambiente com múltiplos municípios",
       ],
     },
   },
@@ -207,8 +213,8 @@ const educationData: EducationData[] = [
       pt: "Bacharelado em Engenharia de Software",
     },
     period: {
-      en: "2022 — 2027 (in progress)",
-      pt: "2022 — 2027 (em andamento)",
+      en: "2022 — Dec 2027 (expected)",
+      pt: "2022 — dez. 2027 (previsão)",
     },
     logo: "edu-1",
   },
