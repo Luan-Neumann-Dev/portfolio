@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" font-family="'JetBrains Mono', ui-monospace, monospace">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d0718"/>
+      <stop offset="1" stop-color="#150b2b"/>
+    </linearGradient>
+    <linearGradient id="hl" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#9b6cf0"/>
+      <stop offset="1" stop-color="#3ed8ee"/>
+    </linearGradient>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 10 5 0 10z" fill="#8a7aa8"/>
+    </marker>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity=".04"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+
+  <text x="100" y="120" fill="#3ed8ee" font-size="22" letter-spacing="4">LARAVEL 12 · SANCTUM · REST API</text>
+  <text x="100" y="185" fill="#f3f0f8" font-size="56" font-weight="700" font-family="'Space Grotesk', system-ui, sans-serif">Habit Tracker API</text>
+  <rect x="100" y="210" width="220" height="4" rx="2" fill="url(#hl)"/>
+
+  <g font-size="24" fill="#f3f0f8">
+    <text x="100" y="300" fill="#8a7aa8" font-size="18" letter-spacing="3">REQUEST FLOW</text>
+    <g>
+      <rect x="100" y="325" width="230" height="110" rx="18" fill="#1b1033" stroke="#3a2a5c"/>
+      <text x="215" y="372" text-anchor="middle">Client</text>
+      <text x="215" y="405" text-anchor="middle" fill="#8a7aa8" font-size="17">Bearer token</text>
+    </g>
+    <g>
+      <rect x="400" y="325" width="250" height="110" rx="18" fill="#1b1033" stroke="#9b6cf0"/>
+      <text x="525" y="372" text-anchor="middle">auth:sanctum</text>
+      <text x="525" y="405" text-anchor="middle" fill="#8a7aa8" font-size="17">token revoked on login</text>
+    </g>
+    <g>
+      <rect x="720" y="325" width="250" height="110" rx="18" fill="#1b1033" stroke="#9b6cf0"/>
+      <text x="845" y="372" text-anchor="middle">HabitPolicy</text>
+      <text x="845" y="405" text-anchor="middle" fill="#8a7aa8" font-size="17">can:own,habit</text>
+    </g>
+    <g>
+      <rect x="1040" y="325" width="220" height="110" rx="18" fill="#1b1033" stroke="#3a2a5c"/>
+      <text x="1150" y="372" text-anchor="middle">Controller</text>
+      <text x="1150" y="405" text-anchor="middle" fill="#8a7aa8" font-size="17">Form Requests</text>
+    </g>
+    <g>
+      <rect x="1330" y="325" width="170" height="110" rx="18" fill="#1b1033" stroke="#3ed8ee"/>
+      <text x="1415" y="372" text-anchor="middle">JSON</text>
+      <text x="1415" y="405" text-anchor="middle" fill="#8a7aa8" font-size="17">API Resource</text>
+    </g>
+    <g stroke="#8a7aa8" stroke-width="2.5" marker-end="url(#a)">
+      <line x1="332" y1="380" x2="396" y2="380"/>
+      <line x1="652" y1="380" x2="716" y2="380"/>
+      <line x1="972" y1="380" x2="1036" y2="380"/>
+      <line x1="1262" y1="380" x2="1326" y2="380"/>
+    </g>
+
+    <text x="100" y="535" fill="#8a7aa8" font-size="18" letter-spacing="3">WEEKLY REPORT</text>
+    <g>
+      <rect x="100" y="560" width="230" height="110" rx="18" fill="#1b1033" stroke="#3a2a5c"/>
+      <text x="215" y="607" text-anchor="middle">Scheduler</text>
+      <text x="215" y="640" text-anchor="middle" fill="#8a7aa8" font-size="17">report:weekly</text>
+    </g>
+    <g>
+      <rect x="400" y="560" width="570" height="110" rx="18" fill="#1b1033" stroke="#9b6cf0"/>
+      <text x="685" y="607" text-anchor="middle">Recursive CTE · 7-day calendar</text>
+      <text x="685" y="640" text-anchor="middle" fill="#8a7aa8" font-size="17">LEFT JOIN habit_logs → done / missed per day</text>
+    </g>
+    <g>
+      <rect x="1040" y="560" width="460" height="110" rx="18" fill="#1b1033" stroke="#3ed8ee"/>
+      <text x="1270" y="607" text-anchor="middle">Markdown e-mail</text>
+      <text x="1270" y="640" text-anchor="middle" fill="#8a7aa8" font-size="17">✓ / ✗ grid per habit</text>
+    </g>
+    <g stroke="#8a7aa8" stroke-width="2.5" marker-end="url(#a)">
+      <line x1="332" y1="615" x2="396" y2="615"/>
+      <line x1="972" y1="615" x2="1036" y2="615"/>
+    </g>
+  </g>
+
+  <text x="100" y="790" fill="#8a7aa8" font-size="20">User (1) ──→ (N) Habit (1) ──→ (N) HabitLog   ·   public UUIDs   ·   ?with=logs,user</text>
+</svg>

@@ -1,44 +1,21 @@
 import type { Lang } from "@/i18n/LanguageContext";
 
-import thumb1 from "@/assets/thumb1.png";
-import thumb2 from "@/assets/thumb2.png";
+import ln01 from "@/assets/projects/ln-01.webp";
+import ln02 from "@/assets/projects/ln-02.webp";
+
+import cf01 from "@/assets/projects/cf-01.webp";
+import cf02 from "@/assets/projects/cf-02.webp";
+import cf03 from "@/assets/projects/cf-03.webp";
+import cf04 from "@/assets/projects/cf-04.webp";
+
 import thumb3 from "@/assets/thumb3.png";
-import p101 from "@/assets/p1-01.png"
-import p102 from "@/assets/p1-02.png"
-import p103 from "@/assets/p1-03.png"
-import p104 from "@/assets/p1-04.png"
-import p105 from "@/assets/p1-05.png"
+import p301 from "@/assets/p3-01.png";
+import p302 from "@/assets/p3-02.png";
+import p303 from "@/assets/p3-03.png";
+import p304 from "@/assets/p3-04.png";
 
-import p201 from "@/assets/p2-01.png"
-
-import p301 from "@/assets/p3-01.png"
-import p302 from "@/assets/p3-02.png"
-import p303 from "@/assets/p3-03.png"
-import p304 from "@/assets/p3-04.png"
-
-import p401 from "@/assets/p4-01.jpg"
-import p402 from "@/assets/p4-02.jpg"
-import p403 from "@/assets/p4-03.jpg"
-
-import p501 from "@/assets/p5-01.jpg"
-import p502 from "@/assets/p5-02.jpg"
-import p503 from "@/assets/p5-03.jpg"
-
-import p601 from "@/assets/p6-01.jpg"
-import p602 from "@/assets/p6-02.jpg"
-import p603 from "@/assets/p6-03.jpg"
-
-import p701 from "@/assets/p7-01.jpg"
-import p702 from "@/assets/p7-02.jpg"
-import p703 from "@/assets/p7-03.jpg"
-
-import p801 from "@/assets/p8-01.jpg"
-import p802 from "@/assets/p8-02.jpg"
-import p803 from "@/assets/p8-03.jpg"
-
-import p901 from "@/assets/p9-01.jpg"
-import p902 from "@/assets/p9-02.jpg"
-import p903 from "@/assets/p9-03.jpg"
+import habitCover from "@/assets/projects/habit-cover.svg";
+import habitArchitecture from "@/assets/projects/habit-architecture.svg";
 
 // =============================================
 // PROJECTS
@@ -91,154 +68,150 @@ export interface Project {
 
 const projectsData: ProjectData[] = [
   {
-    id: "finance-hub-web",
-    title: "FinanceHub Web",
+    id: "ln-veiculos",
+    title: "LN Veículos",
     subtitle: {
-      en: "Personal finance dashboard with Next.js 15",
-      pt: "Dashboard de finanças pessoais com Next.js 15",
+      en: "Vehicle showcase on Cloudflare's free tier, used by real sellers",
+      pt: "Vitrine de veículos na camada gratuita da Cloudflare, usada por vendedores reais",
     },
     description: {
-      en: "Interactive dashboard to visualize income, expenses, savings and financial trends — built with Next.js 15 App Router, Recharts and Radix UI.",
-      pt: "Dashboard interativo para visualizar receitas, despesas, economias e tendências financeiras — construído com Next.js 15 App Router, Recharts e Radix UI.",
+      en: "A storefront I built to sell my own vehicles — then friends started listing theirs too. Next.js 16 on Cloudflare Workers with D1, R2 and edge rate limiting, at R$ 0/month in infrastructure.",
+      pt: "Uma vitrine que construí para vender os meus veículos — e depois os amigos começaram a anunciar os deles também. Next.js 16 na Cloudflare Workers com D1, R2 e rate limiting na borda, com custo de infraestrutura de R$ 0 por mês.",
     },
-    techs: ["Next.js 15", "React", "TypeScript", "Tailwind CSS", "Recharts", "Radix UI"],
-    thumbnail: thumb1,
-    images: [p101, p102, p103, p104, p105],
+    techs: ["Next.js 16", "React 19", "TypeScript", "Cloudflare Workers", "D1", "R2", "Drizzle ORM"],
+    thumbnail: ln01,
+    images: [ln01, ln02],
     fullDescription: {
-      en: "FinanceHub Web is the frontend of the FinanceHub ecosystem. It offers a dashboard with monthly summary cards, a pie chart of expenses by category, an annual bar chart of income vs. expenses and financial insight cards generated from the report data. The remaining pages cover expense management with installment-group views, income sources, piggy banks with transaction history, and reports by period and by year. Authentication is handled through middleware-protected routes and a JWT stored in a cookie.",
-      pt: "FinanceHub Web é o frontend do ecossistema FinanceHub. Oferece um dashboard com cards de resumo mensal, gráfico de pizza de despesas por categoria, gráfico de barras anual de receitas vs. despesas e cards de insights financeiros gerados a partir dos dados dos relatórios. As demais páginas cobrem gestão de despesas com visualização de grupos de parcelamento, fontes de receita, cofrinhos com histórico de transações e relatórios por período e anuais. A autenticação é feita via rotas protegidas por middleware e JWT armazenado em cookie.",
+      en: "LN Veículos is a used-vehicle catalog that runs entirely inside a single Cloudflare Worker. Every listing is its own crawlable page with schema.org structured data, so Google shows the car with its price and year. Buyers filter by brand, price, year, transmission and fuel instantly, and every call to action opens WhatsApp with the vehicle already in the message — that is where the sale actually closes. The seller manages everything from a phone through a password-protected admin panel: drag the photos in, reorder them and the listing is live. It started as a way to sell my own vehicles; friends asking to list theirs is what turned it into a tool other people depend on.",
+      pt: "LN Veículos é um catálogo de veículos seminovos que roda inteiro dentro de um único Worker da Cloudflare. Cada anúncio é uma página própria, indexável e com dados estruturados schema.org, então o Google mostra o carro com preço e ano. O comprador filtra por marca, preço, ano, câmbio e combustível na hora, e todo botão de contato abre o WhatsApp com o veículo já na mensagem — é lá que a venda fecha de verdade. O vendedor gerencia tudo pelo celular, num painel administrativo protegido por senha: arrasta as fotos, reordena e o anúncio está no ar. Começou como um jeito de vender os meus veículos; os amigos pedindo para anunciar os deles foi o que transformou em uma ferramenta da qual outras pessoas dependem.",
     },
     problem: {
-      en: "Consuming a rich financial API requires a frontend that can handle multiple asynchronous data sources, protect routes without flashing unauthenticated content, and present complex data (charts, grouped installments, insight cards) without polluting the component layer with business logic.",
-      pt: "Consumir uma API financeira rica exige um frontend capaz de lidar com múltiplas fontes de dados assíncronas, proteger rotas sem piscar conteúdo não autenticado e apresentar dados complexos (gráficos, parcelamentos agrupados, cards de insights) sem poluir a camada de componentes com lógica de negócio.",
+      en: "Around here, vehicles are sold through WhatsApp and Instagram: the car lives in a photo album and the price in a caption, and none of it shows up on Google. I also set a hard constraint: the whole thing had to fit Cloudflare's free tier, even when a scraper finds it at 3 a.m. On an edge runtime there is no filesystem, no long-lived process and only 10 ms of CPU per request, so several Next.js defaults (image optimizer, Node middleware, signed uploads) simply don't apply.",
+      pt: "Por aqui, veículo se vende pelo WhatsApp e pelo Instagram: o carro mora num álbum de fotos e o preço numa legenda, e nada disso aparece no Google. Também impus uma restrição dura: tudo tinha que caber na camada gratuita da Cloudflare, mesmo quando um robô encontrar o site às 3 da manhã. Num runtime de borda não há sistema de arquivos, nem processo de longa duração, e só 10 ms de CPU por requisição, então vários padrões do Next.js (otimizador de imagens, middleware em Node, uploads assinados) simplesmente não se aplicam.",
     },
     solution: {
-      en: "Next.js 15 App Router with route groups — (auth) and (dashboard) — for layout separation without affecting the URL. Each page delegates all data loading to a dedicated custom hook (useDashboard, useExpenses, usePiggys, etc.), keeping components purely presentational. Middleware protects the routes on the server. Financial insights are derived on the client from the report data by a pure function, with no extra API calls.",
-      pt: "Next.js 15 App Router com route groups — (auth) e (dashboard) — para separação de layout sem impacto na URL. Cada página delega todo o carregamento de dados a um custom hook dedicado (useDashboard, useExpenses, usePiggys, etc.), mantendo os componentes puramente apresentacionais. O middleware protege as rotas no servidor. Os insights financeiros são derivados no cliente a partir dos dados dos relatórios por uma função pura, sem chamadas extras à API.",
+      en: "Server components render the catalog so the first paint already contains the cars, and server actions handle every write. D1 (SQLite at the edge) stores the catalog through Drizzle, and R2 stores the photos through a Worker binding, with no credentials in the app. Photos are resized and converted to WebP in the browser before upload, filters run client-side while the URL stays shareable, and a per-IP rate limiter in the middleware returns 429 before any database query or render happens.",
+      pt: "Server components renderizam o catálogo, então a primeira pintura já traz os carros, e server actions cuidam de toda escrita. O D1 (SQLite na borda) guarda o catálogo via Drizzle, e o R2 guarda as fotos via binding do Worker, sem credenciais na aplicação. As fotos são redimensionadas e convertidas para WebP no navegador antes do upload, os filtros rodam no cliente mantendo a URL compartilhável, e um rate limiter por IP no middleware devolve 429 antes de qualquer consulta ao banco ou renderização.",
     },
     decisions: {
       en: [
-        "Next.js 15 App Router route groups to apply different layouts (with/without sidebar) without changing the URL structure",
-        "Per-domain custom hooks as the data layer — components receive render-ready state and never call the API directly",
-        "Per-route loading.tsx for automatic skeleton states, eliminating layout shift during loading",
-        "Radix UI primitives for accessible dialogs, selects and tabs without importing a full component library",
-        "js-cookie for client-side JWT storage, keeping the auth flow simple without a backend-for-frontend layer",
+        "Cloudflare Workers + D1 + R2 instead of a VPS: no origin server, no connection pool, and R$ 0/month — the domain is the only real cost",
+        "Client-side image pipeline: a 3.8 MB phone photo leaves the device as ~13 KB + ~4 KB WebP, since the next/image optimizer doesn't run on Workers",
+        "Filters applied in the browser with zero requests per click, while the filter state is mirrored in the URL so every view is shareable and server-renderable",
+        "One schema for cars and motorcycles: the listing's kind drives which fields the editor shows and which filters exist",
+        "JWT session in an HttpOnly cookie signed with jose (Web Crypto), and a build-time guard that fails the deploy if a secret ever lands in a .env file",
       ],
       pt: [
-        "Route groups do App Router do Next.js 15 para aplicar layouts diferentes (com/sem sidebar) sem alterar a estrutura de URLs",
-        "Custom hooks por domínio como camada de dados — os componentes recebem o estado pronto para renderizar e nunca chamam a API diretamente",
-        "loading.tsx por rota para estados de skeleton automáticos, eliminando layout shift durante o carregamento",
-        "Primitivos do Radix UI para dialogs, selects e tabs acessíveis sem importar uma biblioteca de componentes completa",
-        "js-cookie para armazenamento do JWT no cliente, mantendo o fluxo de autenticação simples sem camada de backend-for-frontend",
+        "Cloudflare Workers + D1 + R2 no lugar de uma VPS: sem servidor de origem, sem pool de conexões e R$ 0 por mês — o domínio é o único custo real",
+        "Pipeline de imagens no cliente: uma foto de 3,8 MB do celular sai como ~13 KB + ~4 KB em WebP, já que o otimizador do next/image não roda em Workers",
+        "Filtros aplicados no navegador, com zero requisições por clique, e o estado espelhado na URL para cada visão ser compartilhável e renderizável no servidor",
+        "Um schema único para carros e motos: o tipo do anúncio define quais campos o editor mostra e quais filtros existem",
+        "Sessão JWT em cookie HttpOnly assinada com jose (Web Crypto), e uma checagem no build que barra o deploy se um segredo aparecer num arquivo .env",
       ],
     },
     challenges: {
       en: [
-        "Protecting routes in the Next.js App Router without a client-side flash — solved by handling redirects in middleware.ts before the page renders",
-        "Composing Recharts components (custom tooltips, responsive containers, dual bar chart) to fit the dashboard design",
-        "Building the insight engine to surface contextual, relevant financial messages from raw report data, entirely on the client",
+        "Serving photos fast for free — solved with two WebP variants generated in the browser and edge caching, so repeated views cost about one R2 read regardless of traffic",
+        "Stopping scrapers within 10 ms of CPU — solved with Cloudflare rate limiting bindings in the middleware, rejecting floods before D1, R2 or React are touched",
+        "Making each car findable on Google — solved with one slug URL per listing, schema.org Car/Motorcycle data with offer and mileage, and a generated sitemap",
       ],
       pt: [
-        "Proteger rotas no App Router do Next.js sem flash no cliente — resolvido tratando os redirecionamentos no middleware.ts antes da página renderizar",
-        "Compor os componentes do Recharts (tooltips customizados, containers responsivos, gráfico de barras duplo) para se encaixar no design do dashboard",
-        "Construir o motor de insights para surfaçar mensagens financeiras contextuais e relevantes a partir dos dados brutos dos relatórios, puramente no cliente",
+        "Servir fotos rápido e de graça — resolvido com duas variantes WebP geradas no navegador e cache na borda, então visualizações repetidas custam cerca de uma leitura no R2, seja qual for o tráfego",
+        "Barrar robôs com 10 ms de CPU — resolvido com os bindings de rate limiting da Cloudflare no middleware, rejeitando a enxurrada antes de tocar no D1, no R2 ou no React",
+        "Fazer cada carro ser encontrado no Google — resolvido com uma URL por anúncio, dados schema.org Car/Motorcycle com oferta e quilometragem, e um sitemap gerado",
       ],
     },
     improvements: {
       en: [
-        "Dark mode toggle",
-        "Expense filters by category, date range and amount",
-        "CSV export of dashboard data",
-        "Mobile-first PWA support",
-        "Budget-limit alert notifications",
+        "Multiple sellers with their own accounts and listings",
+        "View and contact-click metrics per listing",
+        "Automated end-to-end tests for the admin flow",
+        "Price-drop alerts for interested buyers",
       ],
       pt: [
-        "Toggle de modo escuro",
-        "Filtros de despesas por categoria, intervalo de datas e valor",
-        "Exportação dos dados do dashboard em CSV",
-        "Suporte a PWA mobile-first",
-        "Notificações de alertas de limite de orçamento",
+        "Vários vendedores, cada um com sua conta e seus anúncios",
+        "Métricas de visualização e de cliques no contato por anúncio",
+        "Testes end-to-end automatizados para o fluxo do painel",
+        "Alerta de redução de preço para compradores interessados",
       ],
     },
-    github: "https://github.com/Luan-Neumann-Dev/finance-hub-web",
+    github: "https://github.com/Luan-Neumann-Dev/vitrine-car-app",
+    demo: "https://vitrine-carros.lnneumann.workers.dev/",
+    year: "2026",
+    size: "lg",
+    accent: "cyan",
+  },
+  {
+    id: "cifrao",
+    title: "Cifrão",
+    subtitle: {
+      en: "Personal finance app that models credit cards the way banks do",
+      pt: "App de finanças pessoais que trata cartão de crédito como o banco trata",
+    },
+    description: {
+      en: "Third iteration of my FinanceHub line: a Next.js 15 + NestJS 11 monorepo with real credit card invoices, installments, statement import, investments and 2FA — backed by 300+ automated tests.",
+      pt: "Terceira versão da minha linha FinanceHub: um monorepo Next.js 15 + NestJS 11 com faturas de cartão reais, parcelamentos, importação de extrato, investimentos e 2FA — com mais de 300 testes automatizados.",
+    },
+    techs: ["Next.js 15", "NestJS 11", "TypeScript", "PostgreSQL", "Prisma", "Turborepo", "Vitest"],
+    thumbnail: cf01,
+    images: [cf01, cf02, cf03, cf04],
+    fullDescription: {
+      en: "Cifrão is a full-stack personal finance app: bank accounts, credit cards with real invoices, installments, budgets, goals, bank statement import, reports and an investment portfolio. It is the third iteration of a project I keep rebuilding as I grow: FinanceHub v1 (a NestJS API and a Next.js dashboard), FinanceHub v2 (NestJS 11, Prisma 7, Next.js 16 with Server Actions) and now Cifrão, redesigned from scratch with better-thought-out domain rules. It started from a written spec with numbered domain rules and was built in 10 phases, each closed only when lint, typecheck, tests and build were green. A demo build runs entirely in the browser from recorded API responses, so recruiters can click around without signing up.",
+      pt: "Cifrão é um app full-stack de finanças pessoais: contas bancárias, cartões de crédito com faturas reais, parcelamentos, orçamentos, metas, importação de extrato, relatórios e carteira de investimentos. É a terceira versão de um projeto que eu reconstruo à medida que evoluo: FinanceHub v1 (uma API em NestJS e um dashboard em Next.js), FinanceHub v2 (NestJS 11, Prisma 7, Next.js 16 com Server Actions) e agora o Cifrão, redesenhado do zero com regras de domínio melhor pensadas. Começou de uma especificação escrita com regras de domínio numeradas e foi construído em 10 fases, cada uma fechada só com lint, typecheck, testes e build verdes. Uma versão demo roda inteira no navegador a partir de respostas reais gravadas da API, então dá para navegar sem criar conta.",
+    },
+    problem: {
+      en: "Most finance apps record a credit card purchase as an expense on the day it happens. That is not how money works in Brazil: a purchase lands on the invoice that closes next, installments spread across future invoices, and paying the invoice moves money from your bank account to the card. Treating that payment as a new expense counts every purchase twice — and the balance you see is never what you can actually spend.",
+      pt: "A maioria dos apps de finanças registra a compra no cartão como despesa no dia em que acontece. Não é assim que o dinheiro funciona no Brasil: a compra cai na fatura que fecha em seguida, as parcelas se espalham pelas próximas faturas, e pagar a fatura move dinheiro da conta para o cartão. Tratar esse pagamento como uma nova despesa conta cada compra duas vezes — e o saldo que você vê nunca é o que você pode gastar de verdade.",
+    },
+    solution: {
+      en: "The invoice is a first-class entity: each purchase is routed to the right invoice by closing day, installments become one child transaction per consecutive invoice, and paying an invoice is a transfer that never counts as income or expense. The dashboard shows a \"truly available\" balance — limit minus open invoice, unpaid closed invoices and future installments. Domain rules live as pure TypeScript functions in a shared package, tested without a database and used by both the Next.js app and the NestJS API.",
+      pt: "A fatura é uma entidade de primeira classe: cada compra vai para a fatura certa pelo dia de fechamento, as parcelas viram uma transação filha por fatura consecutiva, e pagar a fatura é uma transferência que nunca conta como receita ou despesa. O dashboard mostra o saldo \"disponível de verdade\" — limite menos fatura aberta, faturas fechadas não pagas e parcelas futuras. As regras de domínio são funções puras em TypeScript num pacote compartilhado, testadas sem banco e usadas tanto pelo app em Next.js quanto pela API em NestJS.",
+    },
+    decisions: {
+      en: [
+        "Money is always an integer number of cents (BigInt), never a float — installment remainders go to the first parts so they always add up to the total",
+        "Monorepo with pnpm workspaces + Turborepo, sharing Zod schemas and pure domain logic between web and API",
+        "Only the web app is exposed: the API is reached through an internal /api rewrite, with no open CORS; Better Auth issues the JWT and the API validates it locally against the JWKS",
+        "Background jobs on pg-boss, a queue that lives inside Postgres, instead of adding Redis",
+        "Balances maintained inside each write transaction, so reading a balance is O(1) and the dashboard answers in ~20 ms over 5,000 transactions",
+      ],
+      pt: [
+        "Dinheiro é sempre um número inteiro de centavos (BigInt), nunca float — o resto das parcelas vai para as primeiras, então elas sempre somam o total",
+        "Monorepo com pnpm workspaces + Turborepo, compartilhando schemas Zod e lógica de domínio pura entre web e API",
+        "Só o app web fica exposto: a API é acessada por um rewrite interno /api, sem CORS aberto; o Better Auth emite o JWT e a API valida localmente contra o JWKS",
+        "Jobs em segundo plano com pg-boss, uma fila que vive dentro do Postgres, em vez de adicionar Redis",
+        "Saldos mantidos dentro de cada transação de escrita, então ler um saldo é O(1) e o dashboard responde em ~20 ms com 5.000 transações",
+      ],
+    },
+    challenges: {
+      en: [
+        "Routing purchases to the right invoice — closing day 31 in February, purchases on the closing day, due dates in the next month — solved with a pure function over calendar parts in the São Paulo time zone, proven by tests",
+        "Importing OFX, CSV and QIF statements without duplicates — solved with content-based format detection, FITID matching or date ±3 days + amount + trigram similarity, and a staging area where nothing is written before you confirm",
+        "Proving users can't touch each other's data — solved with an end-to-end suite that creates two users and checks isolation on every endpoint",
+      ],
+      pt: [
+        "Encaminhar compras para a fatura certa — fechamento no dia 31 em fevereiro, compras no dia do fechamento, vencimento no mês seguinte — resolvido com uma função pura sobre partes do calendário no fuso de São Paulo, comprovada por testes",
+        "Importar extratos OFX, CSV e QIF sem duplicar — resolvido com detecção de formato pelo conteúdo, casamento por FITID ou data ±3 dias + valor + similaridade por trigramas, e uma área de revisão onde nada é gravado antes da confirmação",
+        "Provar que um usuário não acessa os dados de outro — resolvido com uma suíte end-to-end que cria dois usuários e verifica o isolamento em todos os endpoints",
+      ],
+    },
+    improvements: {
+      en: [
+        "Open Finance integration to sync accounts automatically",
+        "Shared household budgets with more than one user",
+        "Native mobile app reusing the shared domain package",
+      ],
+      pt: [
+        "Integração com Open Finance para sincronizar as contas automaticamente",
+        "Orçamento compartilhado da casa, com mais de um usuário",
+        "App mobile nativo reaproveitando o pacote de domínio compartilhado",
+      ],
+    },
+    github: "https://github.com/Luan-Neumann-Dev/cifrao",
+    demo: "https://cifrao-beryl.vercel.app",
     year: "2026",
     size: "lg",
     accent: "purple",
-  },
-  {
-    id: "finance-hub-api",
-    title: "FinanceHub API",
-    subtitle: {
-      en: "REST API for personal finance management",
-      pt: "API REST para gestão de finanças pessoais",
-    },
-    description: {
-      en: "Modular NestJS API with JWT authentication, income and expense control, an installment system, piggy banks and a multi-type reporting engine.",
-      pt: "API NestJS modular com autenticação JWT, controle de receitas e despesas, sistema de parcelamento, cofrinhos e motor de relatórios multi-tipo.",
-    },
-    techs: ["NestJS", "TypeScript", "Prisma", "PostgreSQL", "JWT", "bcrypt"],
-    thumbnail: thumb2,
-    images: [p201],
-    fullDescription: {
-      en: "FinanceHub API is a RESTful backend service for personal finance management. It exposes endpoints for income sources with recurrence rules (weekly, monthly, yearly, one-off), categorized expenses, installment purchases and virtual piggy banks with transaction history. A dedicated reporting module delivers monthly summaries, period analyses, month-by-month annual data and month-to-month comparisons — all computed on the server with parallel queries.",
-      pt: "FinanceHub API é um serviço backend RESTful para gestão de finanças pessoais. Expõe endpoints para fontes de receita com regras de recorrência (semanal, mensal, anual, única), despesas categorizadas, compras parceladas e cofrinhos virtuais com histórico de transações. Um módulo dedicado de relatórios entrega resumos mensais, análises por período, dados anuais mês a mês e comparativos entre meses — tudo calculado no servidor com queries paralelas.",
-    },
-    problem: {
-      en: "Personal finance apps often centralize all the logic on the client, which makes them hard to extend and impossible to share data across devices. The challenge was to build a structured, secure backend that centralizes the financial calculations and exposes them through a clean API.",
-      pt: "Aplicativos de finanças pessoais frequentemente centralizam toda a lógica no cliente, o que dificulta a extensão e torna impossível compartilhar dados entre dispositivos. O desafio era construir um backend estruturado e seguro que centralizasse os cálculos financeiros e os expusesse por meio de uma API limpa.",
-    },
-    solution: {
-      en: "Modular architecture with NestJS, where each financial domain (auth, income, expenses, installments, piggy banks, reports) lives in an isolated module. Prisma handles all database communication with full type safety. The reporting engine uses parallel queries with Promise.all and Prisma's groupBy and aggregate features to normalize different recurrence types without generating N+1 queries.",
-      pt: "Arquitetura modular com NestJS, onde cada domínio financeiro (auth, receitas, despesas, parcelamentos, cofrinhos, relatórios) vive em um módulo isolado. O Prisma gerencia toda a comunicação com o banco com tipagem completa. O motor de relatórios usa queries paralelas com Promise.all e os recursos groupBy e aggregate do Prisma para normalizar diferentes tipos de recorrência sem gerar queries N+1.",
-    },
-    decisions: {
-      en: [
-        "NestJS for its opinionated module system and native support for guards, pipes and filters — which made it simple to implement a global JWT guard with per-route opt-out via @Public()",
-        "Prisma instead of raw SQL or another ORM for its type-safe query builder and first-class migration tooling",
-        "InstallmentGroup as a parent model that automatically generates N individual Expense records on creation, keeping the expenses table uniform while enabling grouped views",
-        "Global ValidationPipe with whitelist: true to drop unknown fields at the controller boundary, preventing mass-assignment issues",
-        "Default expense categories created automatically on user registration to improve the first-run experience without extra setup",
-      ],
-      pt: [
-        "NestJS pelo seu sistema de módulos opinativo e suporte nativo a guards, pipes e filters — o que tornou simples implementar um guard JWT global com opt-out por rota via @Public()",
-        "Prisma no lugar de SQL puro ou outro ORM pelo query builder com tipagem segura e tooling de migrations de primeira classe",
-        "InstallmentGroup como modelo pai que gera automaticamente N registros de Expense individuais na criação, mantendo a tabela de despesas uniforme e permitindo visualizações agrupadas",
-        "ValidationPipe global com whitelist: true para descartar campos desconhecidos na entrada do controller, prevenindo problemas de mass assignment",
-        "Categorias padrão de despesas criadas automaticamente no registro do usuário para melhorar a experiência de primeiro acesso sem exigir configuração extra",
-      ],
-    },
-    challenges: {
-      en: [
-        "Normalizing recurring income across different recurrence types (weekly ×4, monthly ×1, yearly ÷12) for any date range in the reporting engine",
-        "Modeling the installment system so individual expense records stay queryable as usual while still being linked to the parent group",
-        "Keeping report queries fast by batching every aggregation into a single Promise.all instead of sequential awaits",
-      ],
-      pt: [
-        "Normalizar receitas recorrentes entre diferentes tipos de recorrência (semanal ×4, mensal ×1, anual ÷12) para qualquer intervalo de datas no motor de relatórios",
-        "Modelar o sistema de parcelamento de forma que os registros de despesa individuais continuem consultáveis normalmente e ao mesmo tempo vinculáveis ao grupo pai",
-        "Manter as queries de relatório rápidas agrupando todas as agregações em um único Promise.all em vez de awaits sequenciais",
-      ],
-    },
-    improvements: {
-      en: [
-        "Swagger/OpenAPI documentation endpoint",
-        "Per-category budget goals with limit alerts",
-        "Report export in CSV or PDF",
-        "Refresh token support",
-        "Unit test coverage for every service method",
-      ],
-      pt: [
-        "Endpoint de documentação Swagger/OpenAPI",
-        "Metas de orçamento por categoria com alertas de limite",
-        "Exportação de relatórios em CSV ou PDF",
-        "Suporte a refresh token",
-        "Cobertura de testes unitários para todos os métodos de serviço",
-      ],
-    },
-    github: "https://github.com/Luan-Neumann-Dev/finance-hub-api-nestjs",
-    year: "2026",
-    size: "md",
-    accent: "cyan",
   },
   {
     id: "email-blast",
@@ -310,465 +283,78 @@ const projectsData: ProjectData[] = [
         "Suporte a múltiplos usuários com workspaces de equipe",
       ],
     },
-    github: "https://github.com/Luan-Neumann-Dev/email-blast",
+    github: "https://github.com/Luan-Neumann-Dev/email-blast-app",
     year: "2025",
+    size: "md",
+    accent: "magenta",
+  },
+  {
+    id: "habit-tracker-api",
+    title: "Habit Tracker API",
+    subtitle: {
+      en: "Laravel 12 REST API with Sanctum, policies and a weekly e-mail report",
+      pt: "API REST em Laravel 12 com Sanctum, policies e relatório semanal por e-mail",
+    },
+    description: {
+      en: "Habit tracking API built to practice the parts of Laravel beyond CRUD: Sanctum token auth, ownership policies, nested resources by UUID, API Resources and a scheduled command that e-mails a weekly progress grid.",
+      pt: "API de hábitos construída para praticar o Laravel além do CRUD: autenticação por token com Sanctum, policies de propriedade, recursos aninhados por UUID, API Resources e um comando agendado que envia por e-mail a grade semanal de progresso.",
+    },
+    techs: ["Laravel 12", "PHP 8.2", "Sanctum", "Eloquent", "SQLite", "Rector · Pint"],
+    thumbnail: habitCover,
+    images: [habitArchitecture],
+    fullDescription: {
+      en: "Habit Tracker API is a backend for tracking personal habits. A user registers, creates the habits they want to build and checks in on each day they complete one. Once a week, a scheduled Artisan command e-mails every user a Monday-to-Sunday table showing which habits were done on each day. Records are exposed by UUID instead of auto-increment IDs, relations are loaded only when the client asks for them, and checking in twice on the same date updates the existing log instead of duplicating it.",
+      pt: "Habit Tracker API é um backend para acompanhar hábitos pessoais. O usuário se cadastra, cria os hábitos que quer construir e marca cada dia em que cumpriu um deles. Uma vez por semana, um comando Artisan agendado envia a cada usuário uma tabela de segunda a domingo mostrando quais hábitos foram feitos em cada dia. Os registros são expostos por UUID em vez de IDs sequenciais, as relações só são carregadas quando o cliente pede, e marcar duas vezes a mesma data atualiza o registro existente em vez de duplicar.",
+    },
+    problem: {
+      en: "A weekly report needs a row for every day of the week, including the days with no check-in, and an API with nested resources (habits/{habit}/logs/{log}) has to make sure a user can never reach someone else's records through the URL.",
+      pt: "Um relatório semanal precisa de uma linha para cada dia da semana, inclusive os dias sem registro, e uma API com recursos aninhados (habits/{habit}/logs/{log}) precisa garantir que um usuário nunca alcance os registros de outro pela URL.",
+    },
+    solution: {
+      en: "A recursive CTE generates the seven dates and a LEFT JOIN against habit_logs marks each habit as done or missed; a Markdown notification renders it as a ✓/✗ grid. Ownership is enforced by a HabitPolicy attached as controller middleware, and nested routes use scoped bindings resolved by UUID.",
+      pt: "Uma CTE recursiva gera as sete datas e um LEFT JOIN com habit_logs marca cada hábito como feito ou não; uma notificação em Markdown monta a grade ✓/✗. A propriedade é garantida por uma HabitPolicy aplicada como middleware do controller, e as rotas aninhadas usam scoped bindings resolvidos por UUID.",
+    },
+    decisions: {
+      en: [
+        "Sanctum personal access tokens, revoking the user's previous tokens on each login",
+        "HabitPolicy declared as controller middleware (can:own,habit), so the ownership rule lives in one place",
+        "Reusable HasUuid trait to expose UUIDs publicly instead of sequential IDs",
+        "Validation in Form Requests and JSON shaped by API Resources with conditional relations (?with=logs,user)",
+        "Strict types enforced with Pint and Rector",
+      ],
+      pt: [
+        "Tokens de acesso pessoal do Sanctum, revogando os tokens anteriores do usuário a cada login",
+        "HabitPolicy declarada como middleware do controller (can:own,habit), para a regra de propriedade ficar em um lugar só",
+        "Trait HasUuid reutilizável para expor UUIDs em vez de IDs sequenciais",
+        "Validação em Form Requests e JSON montado por API Resources com relações condicionais (?with=logs,user)",
+        "Tipagem estrita garantida com Pint e Rector",
+      ],
+    },
+    challenges: {
+      en: [
+        "Building a full weekly grid including empty days — solved with a recursive CTE cross-joined with habits and left-joined with logs",
+        "Keeping nested routes safe — solved with scoped route binding by UUID plus the ownership policy",
+      ],
+      pt: [
+        "Montar a grade semanal completa, incluindo dias vazios — resolvido com uma CTE recursiva em cross join com os hábitos e left join com os registros",
+        "Manter as rotas aninhadas seguras — resolvido com scoped route binding por UUID mais a policy de propriedade",
+      ],
+    },
+    improvements: {
+      en: [
+        "Feature tests for authentication, habits and logs",
+        "Database-agnostic report query (MySQL / PostgreSQL)",
+        "Streaks and completion rate per habit",
+      ],
+      pt: [
+        "Testes de feature para autenticação, hábitos e registros",
+        "Consulta do relatório independente de banco (MySQL / PostgreSQL)",
+        "Sequências e taxa de conclusão por hábito",
+      ],
+    },
+    github: "https://github.com/Luan-Neumann-Dev/habit-tracker-api",
+    year: "2026",
     size: "sm",
-    accent: "magenta",
-  },
-  {
-    id: "get-a-pet",
-    title: "Get a Pet",
-    subtitle: {
-      en: "Full-stack pet adoption platform",
-      pt: "Plataforma full-stack de adoção de pets",
-    },
-    description: {
-      en: "A platform that connects people who want to adopt with people who have pets up for adoption — animal listings with multiple photos, visit scheduling and the full adoption cycle, with JWT authentication and a protected REST API.",
-      pt: "Plataforma que conecta quem quer adotar a quem tem pets para adoção — cadastro de animais com múltiplas fotos, agendamento de visitas e o ciclo completo de adoção, com autenticação JWT e API REST protegida.",
-    },
-    techs: ["React 18", "Node.js", "Express", "MongoDB", "Mongoose", "JWT", "Multer"],
-    thumbnail: p401,
-    images: [p401, p402, p403],
-    fullDescription: {
-      en: "Get a Pet is a full-stack application that connects people who want to adopt with people who have pets available for adoption. Users sign up, create listings for their animals with multiple photos and manage the entire adoption cycle — from scheduling visits to completion. Every route that modifies data is protected by a verifyToken middleware on the backend, and the frontend mirrors that check by verifying the auth state before rendering sensitive pages, keeping both layers consistent. Global auth state is shared across the app via the Context API, while a decoupled event bus delivers flash messages between components without prop drilling.",
-      pt: "Get a Pet é uma aplicação full-stack que conecta pessoas que querem adotar a pessoas com pets disponíveis para adoção. Os usuários se cadastram, criam anúncios dos seus animais com múltiplas fotos e gerenciam todo o ciclo de adoção — do agendamento de visitas até a conclusão. Toda rota que modifica dados é protegida por um middleware verifyToken no backend, e o frontend espelha essa verificação checando o estado de autenticação antes de renderizar páginas sensíveis, mantendo as duas camadas consistentes. O estado global de autenticação é compartilhado por toda a aplicação via Context API, enquanto um event bus desacoplado entrega as flash messages entre componentes sem prop drilling.",
-    },
-    problem: {
-      en: "Going beyond a simple CRUD means dealing with real concerns of a complete application: secure authentication, protected API routes, file uploads and a consistent global auth state across every screen. Without a solid authorization layer, any authenticated user could edit or delete listings that aren't theirs.",
-      pt: "Ir além de um CRUD simples exige lidar com preocupações reais de uma aplicação completa: autenticação segura, rotas de API protegidas, upload de arquivos e um estado de autenticação global consistente entre todas as telas. Sem uma camada de autorização sólida, qualquer usuário autenticado poderia editar ou excluir anúncios que não são seus.",
-    },
-    solution: {
-      en: "Full-stack architecture with React on the frontend and Express + MongoDB on the backend, connected via Axios. Authentication uses a JWT sent in the Authorization header and validated by a verifyToken middleware that protects all write operations. Each write controller resolves the user from the token and compares their _id with the resource owner's before allowing the operation. Multi-image upload is handled by Multer and served as static files. On the frontend, the Context API centralizes auth state and an EventEmitter-based event bus delivers flash messages.",
-      pt: "Arquitetura full-stack com React no frontend e Express + MongoDB no backend, conectados via Axios. A autenticação usa JWT enviado no header Authorization e validado por um middleware verifyToken que protege todas as operações de escrita. Cada controller de escrita resolve o usuário a partir do token e compara o _id dele com o do dono do recurso antes de permitir a operação. O upload de múltiplas imagens é tratado pelo Multer e servido como arquivos estáticos. No frontend, o Context API centraliza o estado de autenticação e um event bus baseado em EventEmitter entrega as flash messages.",
-    },
-    decisions: {
-      en: [
-        "Context API with a useAuth hook to share the auth state across the whole app, eliminating prop drilling",
-        "Lightweight EventEmitter-based event bus (useFlashMessage) to fire flash messages from any component and display them at the top of the tree, with no common parent",
-        "verifyToken middleware centralizing authentication instead of repeating the check in every controller",
-        "Ownership check on every write: the token user's _id is compared with the resource owner's before any update or delete",
-        "Deliberate denormalization in MongoDB — the owner's data is embedded in the pet document to optimize listing reads",
-        "Isolated helper functions (getToken, getUserByToken, createUserToken) to keep controllers clean",
-      ],
-      pt: [
-        "Context API com um hook useAuth para compartilhar o estado de autenticação por toda a aplicação, eliminando prop drilling",
-        "Event bus leve baseado em EventEmitter (useFlashMessage) para disparar flash messages de qualquer componente e exibi-las no topo da árvore, sem pais em comum",
-        "Middleware verifyToken centralizando a autenticação em vez de repetir a verificação em cada controller",
-        "Verificação de propriedade (ownership) em toda escrita: o _id do usuário do token é comparado ao do dono do recurso antes de qualquer update ou delete",
-        "Denormalização deliberada no MongoDB — os dados do dono são embutidos no documento do pet para otimizar a leitura da listagem",
-        "Funções helper isoladas (getToken, getUserByToken, createUserToken) para manter os controllers limpos",
-      ],
-    },
-    challenges: {
-      en: [
-        "Sharing the auth state across the entire app and reacting in real time to login, logout and profile updates — solved with a UserContext and the useAuth hook",
-        "Displaying flash messages fired from inside a form in a layout component at the top of the tree, with no common parent — solved with an EventEmitter-based event bus",
-        "Ensuring only a pet's owner can edit or delete it, regardless of the ID passed in the URL — solved by comparing the token's _id with the resource's on every write",
-      ],
-      pt: [
-        "Compartilhar o estado de autenticação entre toda a aplicação e reagir em tempo real a login, logout e atualização de perfil — resolvido com um UserContext e o hook useAuth",
-        "Exibir flash messages disparadas de dentro de um formulário em um componente de layout no topo da árvore, sem um pai em comum — resolvido com um event bus baseado em EventEmitter",
-        "Garantir que apenas o dono de um pet possa editá-lo ou excluí-lo, independente do ID passado na URL — resolvido comparando o _id do token com o do recurso em toda escrita",
-      ],
-    },
-    improvements: {
-      en: [
-        "Search and filter pets by species, age or location",
-        "Real-time chat between owner and potential adopter",
-        "Email notifications when a visit is scheduled",
-        "Pagination on the pet listing",
-        "Migration to TypeScript on frontend and backend",
-        "Input validation with Zod or Joi on the API",
-      ],
-      pt: [
-        "Busca e filtro de pets por espécie, idade ou localização",
-        "Chat em tempo real entre dono e possível adotante",
-        "Notificações por e-mail quando uma visita é agendada",
-        "Paginação na listagem de pets",
-        "Migração para TypeScript no frontend e no backend",
-        "Validação de entrada com Zod ou Joi na API",
-      ],
-    },
-    github: "https://github.com/Luan-Neumann-Dev/get-a-pet",
-    year: "2024",
-    size: "md",
-    accent: "purple",
-  },
-  {
-    id: "reactgram",
-    title: "ReactGram",
-    subtitle: {
-      en: "Instagram-inspired photo social network",
-      pt: "Rede social de fotos inspirada no Instagram",
-    },
-    description: {
-      en: "Full-stack social platform inspired by Instagram — photo uploads, likes, comments, search and profile management, with JWT authentication and async state managed by Redux Toolkit.",
-      pt: "Plataforma social full-stack inspirada no Instagram — upload de fotos, curtidas, comentários, busca e gestão de perfil, com autenticação JWT e estado assíncrono gerenciado por Redux Toolkit.",
-    },
-    techs: ["React 18", "Redux Toolkit", "Node.js", "Express", "MongoDB", "JWT", "Multer"],
-    thumbnail: p501,
-    images: [p501, p502, p503],
-    fullDescription: {
-      en: "ReactGram is a full-stack photo-sharing social platform inspired by Instagram. Users sign up, log in, post photos with a title, like and comment on other users' posts, edit their own profile and search — all through a REST API with token-based authentication. The frontend manages complex async state (loading, error, success) with Redux Toolkit via createAsyncThunk and extraReducers, while the backend protects all sensitive routes with an authGuard middleware that validates the JWT.",
-      pt: "ReactGram é uma plataforma social full-stack de compartilhamento de fotos inspirada no Instagram. Os usuários se cadastram, fazem login, publicam fotos com título, curtem e comentam posts de outros usuários, editam o próprio perfil e fazem buscas — tudo através de uma API REST com autenticação baseada em token. O frontend gerencia o estado assíncrono complexo (loading, erro, sucesso) com Redux Toolkit via createAsyncThunk e extraReducers, enquanto o backend protege todas as rotas sensíveis com um middleware authGuard que valida o JWT.",
-    },
-    problem: {
-      en: "Building a complete full-stack application means wiring authentication, file uploads and data flow through a real client-server architecture — from the JWT in the request header to the protected state in the browser. Every operation must also be validated on the server: duplicate likes, edits by non-owners and invalid uploads can't rely on the UI alone.",
-      pt: "Construir uma aplicação full-stack completa exige conectar autenticação, upload de arquivos e fluxo de dados através de uma arquitetura cliente-servidor real — do JWT no header da requisição até o estado protegido no navegador. Cada operação precisa ser validada também no servidor: curtidas duplicadas, edições por quem não é dono e uploads inválidos não podem depender só da UI.",
-    },
-    solution: {
-      en: "Modular REST API with Express and MongoDB (Mongoose), with authentication via a JWT sent as a Bearer token and validated by the authGuard middleware on every protected route. Image upload uses Multer with dynamic folder routing (profile vs. post) and type validation. On the frontend, each Redux Toolkit slice uses createAsyncThunk + extraReducers, with the call logic isolated in a services layer to keep slices clean.",
-      pt: "API REST modular com Express e MongoDB (Mongoose), com autenticação via JWT enviado como Bearer token e validado pelo middleware authGuard em todas as rotas protegidas. O upload de imagens usa Multer com roteamento dinâmico de pastas (perfil x post) e validação de tipo. No frontend, cada slice do Redux Toolkit usa createAsyncThunk + extraReducers, com a lógica das chamadas isolada em uma camada de services para manter os slices limpos.",
-    },
-    decisions: {
-      en: [
-        "Redux Toolkit with createAsyncThunk and extraReducers per slice to manage async states (loading, error, success) predictably",
-        "Services layer isolating API calls, keeping the Redux slices clean and testable",
-        "authGuard middleware validating the JWT on every protected route, centralizing authentication",
-        "Server-side validation with express-validator as middleware before the controller runs",
-        "Dynamic folder routing in Multer by inspecting req.baseUrl to separate profile and post uploads without extra middleware",
-        "Storing only the token and the user ID in localStorage — never passwords or sensitive data",
-      ],
-      pt: [
-        "Redux Toolkit com createAsyncThunk e extraReducers por slice para gerenciar estados assíncronos (loading, erro, sucesso) de forma previsível",
-        "Camada de services isolando as chamadas à API, mantendo os slices do Redux limpos e testáveis",
-        "Middleware authGuard validando o JWT em todas as rotas protegidas, centralizando a autenticação",
-        "Validação no servidor com express-validator como middleware antes do controller rodar",
-        "Roteamento dinâmico de pastas no Multer inspecionando req.baseUrl para separar uploads de perfil e de post sem middleware extra",
-        "Armazenamento apenas do token e do ID do usuário no localStorage — nunca senhas ou dados sensíveis",
-      ],
-    },
-    challenges: {
-      en: [
-        "Protecting frontend routes without repeating the auth check in every component — solved with a useAuth hook that reads the Redux state and returns {auth, loading}, used to wrap each protected route",
-        "Routing profile and post image uploads to different folders, since Multer runs before the controller — solved by inspecting req.baseUrl in the diskStorage destination",
-        "Preventing duplicate likes by enforcing the rule on the server — the controller checks whether the user already liked before adding, returning 422 if so",
-      ],
-      pt: [
-        "Proteger rotas no frontend sem repetir a verificação de autenticação em cada componente — resolvido com um hook useAuth que lê o estado do Redux e retorna {auth, loading}, usado para envolver cada rota protegida",
-        "Direcionar uploads de imagem de perfil e de post para pastas diferentes, já que o Multer roda antes do controller — resolvido inspecionando req.baseUrl no destination do diskStorage",
-        "Impedir curtidas duplicadas garantindo a regra no servidor — o controller verifica se o usuário já curtiu antes de adicionar, retornando 422 caso já tenha curtido",
-      ],
-    },
-    improvements: {
-      en: [
-        "Follow / unfollow system between users",
-        "Notification feed for likes and comments",
-        "Paginated photo feed",
-        "Debounced search",
-        "Deploy the backend on Railway and the frontend on Vercel",
-      ],
-      pt: [
-        "Sistema de seguir / deixar de seguir entre usuários",
-        "Feed de notificações para curtidas e comentários",
-        "Feed de fotos paginado",
-        "Debounce na busca",
-        "Deploy do backend no Railway e frontend na Vercel",
-      ],
-    },
-    github: "https://github.com/Luan-Neumann-Dev/reactgram",
-    year: "2024",
-    size: "md",
-    accent: "magenta",
-  },
-  {
-    id: "thoughts-app",
-    title: "Thoughts App",
-    subtitle: {
-      en: "Full-stack thoughts app with SSR and Handlebars",
-      pt: "App full-stack de pensamentos com SSR e Handlebars",
-    },
-    description: {
-      en: "Full-stack application to create, manage and share personal thoughts, with session-based authentication, a user dashboard and server-side rendering with Handlebars over an MVC architecture.",
-      pt: "Aplicação full-stack para criar, gerenciar e compartilhar pensamentos pessoais, com autenticação por sessão, dashboard do usuário e renderização no servidor com Handlebars sobre arquitetura MVC.",
-    },
-    techs: ["Node.js", "Express", "Handlebars", "Sequelize", "SQLite", "Express-session"],
-    thumbnail: p601,
-    images: [p601, p602, p603],
-    fullDescription: {
-      en: "Thoughts App is a full-stack web application that lets users create, manage and share personal thoughts in a simple, intuitive way. It was built to practice backend architecture with Node.js and Express, focused on MVC structure, authentication and CRUD operations. Pages are rendered on the server with Handlebars, and each user manages their own content securely through routes protected by session middleware.",
-      pt: "Thoughts App é uma aplicação web full-stack que permite aos usuários criar, gerenciar e compartilhar pensamentos pessoais de forma simples e intuitiva. Foi construída para praticar arquitetura de backend com Node.js e Express, com foco em estrutura MVC, autenticação e operações CRUD. As páginas são renderizadas no servidor com Handlebars, e cada usuário gerencia o próprio conteúdo de forma segura através de rotas protegidas por middleware de sessão.",
-    },
-    problem: {
-      en: "Practicing real backend architecture means going beyond isolated screens: structuring the code in layers (MVC), protecting routes so only authenticated users manage their content, and persisting data with an ORM — all in a server-rendered application.",
-      pt: "Praticar arquitetura de backend de verdade exige ir além de telas isoladas: estruturar o código em camadas (MVC), proteger rotas para que só usuários autenticados gerenciem seu conteúdo e persistir dados com um ORM — tudo em uma aplicação renderizada no servidor.",
-    },
-    solution: {
-      en: "MVC application with Express, where models (Sequelize), controllers (business logic) and routes (endpoints) are kept well separated. Authentication uses express-session and a checkAuth middleware protects the routes that require login. Views are rendered on the server with Handlebars, and Sequelize handles persistence over SQLite.",
-      pt: "Aplicação MVC com Express, onde models (Sequelize), controllers (lógica de negócio) e routes (endpoints) ficam bem separados. A autenticação usa express-session e um middleware checkAuth protege as rotas que exigem login. As views são renderizadas no servidor com Handlebars, e o Sequelize gerencia a persistência sobre SQLite.",
-    },
-    decisions: {
-      en: [
-        "MVC architecture with a clear separation between models, controllers and routes",
-        "Sequelize as the ORM to model the entities and relationships over SQLite",
-        "Server-side rendering (SSR) with Handlebars for dynamic pages",
-        "Session-based authentication with express-session and a checkAuth middleware protecting the private routes",
-        "Isolated helper functions to keep the controllers organized",
-      ],
-      pt: [
-        "Arquitetura MVC com separação clara entre models, controllers e routes",
-        "Sequelize como ORM para modelar as entidades e relacionamentos sobre SQLite",
-        "Renderização no servidor (SSR) com Handlebars para páginas dinâmicas",
-        "Autenticação por sessão com express-session e middleware checkAuth protegendo as rotas privadas",
-        "Funções helper isoladas para manter os controllers organizados",
-      ],
-    },
-    challenges: {
-      en: [
-        "Structuring the application in MVC layers while keeping controllers, models and routes with well-separated responsibilities",
-        "Protecting the content-management routes so only authenticated users can access them, via session middleware",
-        "Ensuring each user only sees and manages their own thoughts in the dashboard",
-      ],
-      pt: [
-        "Estruturar a aplicação em camadas MVC mantendo controllers, models e rotas com responsabilidades bem separadas",
-        "Proteger as rotas de gerenciamento de conteúdo para que apenas usuários autenticados acessem, via middleware de sessão",
-        "Garantir que cada usuário só veja e gerencie os próprios pensamentos no dashboard",
-      ],
-    },
-    improvements: {
-      en: [
-        "Likes or reactions on thoughts",
-        "Comment system",
-        "UI/UX improvements",
-        "Pagination of thoughts",
-        "Production deploy (Render / Railway)",
-      ],
-      pt: [
-        "Curtidas ou reações nos pensamentos",
-        "Sistema de comentários",
-        "Melhorias de UI/UX",
-        "Paginação dos pensamentos",
-        "Deploy em produção (Render / Railway)",
-      ],
-    },
-    github: "https://github.com/Luan-Neumann-Dev/thoughts",
-    year: "2023",
-    size: "sm",
-    accent: "purple",
-  },
-  {
-    id: "movies-library",
-    title: "Movies Library",
-    subtitle: {
-      en: "Movie catalog powered by the TMDB API",
-      pt: "Catálogo de filmes com a API do TMDB",
-    },
-    description: {
-      en: "React SPA that consumes the TMDB API to list top-rated movies, search by title and view details like budget, revenue and runtime — with URL-based search and client-side routing.",
-      pt: "SPA em React que consome a API do TMDB para listar os filmes mais bem avaliados, buscar por título e ver detalhes como orçamento, receita e duração — com busca baseada na URL e rotas client-side.",
-    },
-    techs: ["React 18", "React Router 6", "Vite", "TMDB API"],
-    thumbnail: p701,
-    images: [p701, p702, p703],
-    fullDescription: {
-      en: "Movies Library is a React SPA that consumes the TMDB API to display a movie catalog. On the home page, the user sees the top-rated movies fetched directly from the API; from there, they can search any title from the navbar and navigate to a details page with financial and editorial information for each movie. The project covers real frontend patterns: async data fetching with useEffect, client-side routing with React Router, URL search params and API-key management with environment variables.",
-      pt: "Movies Library é uma SPA em React que consome a API do TMDB para exibir um catálogo de filmes. Na home, o usuário vê os filmes mais bem avaliados buscados diretamente da API; a partir daí, pode pesquisar qualquer título pela navbar e navegar até uma página de detalhes com informações financeiras e editoriais de cada filme. O projeto cobre padrões reais de frontend: data fetching assíncrono com useEffect, roteamento client-side com React Router, parâmetros de busca na URL e gerenciamento da chave de API com variáveis de ambiente.",
-    },
-    problem: {
-      en: "Consuming an external API in a SPA requires handling asynchronous requests, keeping the search shareable and navigable through browser history, reusing components across different pages and protecting the API key outside the code.",
-      pt: "Consumir uma API externa em uma SPA exige lidar com requisições assíncronas, manter a busca compartilhável e navegável pelo histórico do navegador, reaproveitar componentes entre páginas diferentes e proteger a chave de API fora do código.",
-    },
-    solution: {
-      en: "React with React Router 6 for routing and a shared layout (Outlet). Search uses useSearchParams, keeping the query in the URL for shareable, history-friendly results. A reusable MovieCard component serves home, search and details, controlled by a showLink prop. The API key lives in environment variables accessed via Vite's import.meta.env.",
-      pt: "React com React Router 6 para roteamento e layout compartilhado (Outlet). A busca usa useSearchParams, guardando a query na URL para resultados compartilháveis e amigáveis ao histórico. Um componente MovieCard reutilizável serve home, busca e detalhe, controlado por uma prop showLink. A chave da API fica em variáveis de ambiente acessadas via import.meta.env do Vite.",
-    },
-    decisions: {
-      en: [
-        "URL-based search with useSearchParams, making results shareable and browser-history friendly",
-        "Reusable MovieCard component across home, search and details, with a showLink prop controlling whether the link renders",
-        "Shared layout with React Router's Outlet to keep the Navbar persistent across pages",
-        "API key managed via environment variables through Vite's import.meta.env, kept out of version control",
-        "Data-fetching logic kept close to the component that owns the state",
-      ],
-      pt: [
-        "Busca baseada na URL com useSearchParams, tornando os resultados compartilháveis e amigáveis ao histórico do navegador",
-        "Componente MovieCard reutilizável entre home, busca e detalhe, com uma prop showLink controlando a renderização do link",
-        "Layout compartilhado com o Outlet do React Router para manter a Navbar persistente entre as páginas",
-        "Chave de API gerenciada por variáveis de ambiente via import.meta.env do Vite, fora do código versionado",
-        "Lógica de data fetching mantida próxima ao componente que detém o estado",
-      ],
-    },
-    challenges: {
-      en: [
-        "Keeping the search shareable and history-friendly — solved by storing the query in the URL with useSearchParams and reacting to it in useEffect",
-        "Reusing the same movie card on home, search and details without duplication — solved with the showLink prop controlling the conditional link rendering",
-        "Protecting the API key outside the code — solved with Vite environment variables (import.meta.env)",
-      ],
-      pt: [
-        "Manter a busca compartilhável e navegável pelo histórico — resolvido guardando a query na URL com useSearchParams e reagindo a ela no useEffect",
-        "Reaproveitar o mesmo card de filme em home, busca e detalhe sem duplicação — resolvido com a prop showLink controlando a renderização condicional do link",
-        "Proteger a chave da API fora do código — resolvido com variáveis de ambiente do Vite (import.meta.env)",
-      ],
-    },
-    improvements: {
-      en: [
-        "Favorites list persisted in localStorage",
-        "Pagination on home and search results",
-        "Genre filter on the home page",
-        "Loading skeleton instead of plain text",
-        "Migration to TypeScript",
-      ],
-      pt: [
-        "Lista de favoritos com persistência em localStorage",
-        "Paginação na home e nos resultados de busca",
-        "Filtro por gênero na home",
-        "Loading skeleton no lugar de texto simples",
-        "Migração para TypeScript",
-      ],
-    },
-    github: "https://github.com/Luan-Neumann-Dev/movies-library",
-    demo: "https://movies-library-smoky-nine.vercel.app/",
-    year: "2024",
-    size: "md",
-    accent: "cyan",
-  },
-  {
-    id: "github-finder",
-    title: "GitHub Finder",
-    subtitle: {
-      en: "GitHub profile search with React + TypeScript",
-      pt: "Busca de perfis do GitHub com React + TypeScript",
-    },
-    description: {
-      en: "React + TypeScript SPA that searches any GitHub profile through the public API and shows, in real time, the user's data and their 5 most-starred repositories.",
-      pt: "SPA em React + TypeScript que busca qualquer perfil do GitHub pela API pública e mostra, em tempo real, os dados do usuário e seus 5 repositórios mais estrelados.",
-    },
-    techs: ["React 18", "TypeScript", "React Router 6", "Vite", "GitHub API", "CSS Modules"],
-    thumbnail: p801,
-    images: [p801, p802, p803],
-    fullDescription: {
-      en: "GitHub Finder is a React SPA that lets you search any GitHub user by username and instantly see their public profile data — avatar, location, followers and following. From the profile, you can navigate to the user's 5 most-starred repositories, all fetched in real time from the public GitHub API. The project was built to practice integrating a real REST API with React, applying TypeScript to ensure type safety across components and data flows.",
-      pt: "GitHub Finder é uma SPA em React que permite buscar qualquer usuário do GitHub pelo username e ver na hora os dados do seu perfil público — avatar, localização, seguidores e seguindo. A partir do perfil, é possível navegar até os 5 repositórios mais estrelados do usuário, todos buscados em tempo real na API pública do GitHub. O projeto foi construído para praticar a integração de uma API REST real com React, aplicando TypeScript para garantir segurança de tipos entre componentes e fluxos de dados.",
-    },
-    problem: {
-      en: "Integrating a real external API into a SPA requires handling asynchronous requests, dealing with different response statuses (200, 404), managing UI states (loading, error, data) and typing the responses to avoid runtime integration errors.",
-      pt: "Integrar uma API externa real em uma SPA exige lidar com requisições assíncronas, tratar diferentes status de resposta (200, 404), gerenciar estados de UI (carregando, erro, dados) e tipar as respostas para evitar erros de integração em tempo de execução.",
-    },
-    solution: {
-      en: "React with TypeScript, where API responses are consumed via native fetch and typed with custom interfaces, making data handling predictable across all components. UI states are managed explicitly with separate useState flags, and the data-fetching logic lives in the pages (routes), separated from the presentational components. Repositories are sorted by stars on the client and sliced to the top 5, avoiding extra API calls.",
-      pt: "React com TypeScript, onde as respostas da API são consumidas via fetch nativo e tipadas com interfaces customizadas, tornando o tratamento de dados previsível em todos os componentes. Os estados de UI são gerenciados explicitamente com flags de useState separadas, e a lógica de data fetching fica nas páginas (routes), separada dos componentes de apresentação. Os repositórios são ordenados por estrelas no cliente e fatiados nos 5 primeiros, evitando chamadas extras à API.",
-    },
-    decisions: {
-      en: [
-        "TypeScript with custom interfaces to type API responses and component props end to end, catching integration errors at compile time",
-        "Client-side sorting of repositories by stars (sort + slice to the top 5) instead of query params, keeping the implementation simple and avoiding extra calls",
-        "Data-fetching logic in the pages (routes), separated from the purely presentational components",
-        "UI states (loading, error, data) managed explicitly with separate useState flags",
-        "CSS Modules for component-scoped styles, avoiding name collisions",
-      ],
-      pt: [
-        "TypeScript com interfaces customizadas para tipar respostas da API e props dos componentes de ponta a ponta, capturando erros de integração em tempo de compilação",
-        "Ordenação dos repositórios por estrelas no cliente (sort + slice nos top 5) em vez de query params, mantendo a implementação simples e sem chamadas extras",
-        "Lógica de data fetching nas páginas (routes), separada dos componentes puramente apresentacionais",
-        "Estados de UI (loading, erro, dados) gerenciados explicitamente com flags de useState separadas",
-        "CSS Modules para estilos com escopo por componente, evitando conflitos de nomes",
-      ],
-    },
-    challenges: {
-      en: [
-        "Handling different GitHub API statuses (profile found vs. 404) by showing a friendly error screen when the user doesn't exist",
-        "Typing API responses and props end to end with TypeScript to catch integration errors before runtime",
-        "Showing the 5 most-starred repositories without extra calls — solved by sorting and slicing the data on the client",
-      ],
-      pt: [
-        "Tratar diferentes status da API do GitHub (perfil encontrado x 404) exibindo uma tela de erro amigável quando o usuário não existe",
-        "Tipar respostas da API e props de ponta a ponta com TypeScript para capturar erros de integração antes da execução",
-        "Mostrar os 5 repositórios mais estrelados sem chamadas extras — resolvido ordenando e fatiando os dados no cliente",
-      ],
-    },
-    improvements: {
-      en: [
-        "Pagination of repositories instead of limiting to the top 5",
-        "Show repository details: language, last update and description",
-        "Light/dark theme toggle",
-        "Cache recent searches to reduce repeated API calls",
-      ],
-      pt: [
-        "Paginação dos repositórios em vez de limitar aos 5 primeiros",
-        "Exibir detalhes do repositório: linguagem, última atualização e descrição",
-        "Toggle de tema claro/escuro",
-        "Cache das buscas recentes para reduzir chamadas repetidas à API",
-      ],
-    },
-    github: "https://github.com/Luan-Neumann-Dev/github-finder",
-    demo: "https://github-finder-lemon-eight.vercel.app/",
-    year: "2024",
-    size: "md",
-    accent: "magenta",
-  },
-  {
-    id: "miniblog",
-    title: "MiniBlog",
-    subtitle: {
-      en: "Full-stack blog with React and Firebase",
-      pt: "Blog full-stack com React e Firebase",
-    },
-    description: {
-      en: "Full-stack blog with React and Firebase — authentication, real-time post CRUD with Firestore, keyword search and a user dashboard, with the logic abstracted into custom hooks.",
-      pt: "Blog full-stack com React e Firebase — autenticação, CRUD de posts em tempo real com Firestore, busca por palavras-chave e dashboard do usuário, com a lógica abstraída em hooks customizados.",
-    },
-    techs: ["React", "Vite", "Firebase Auth", "Firestore", "Context API", "CSS Modules"],
-    thumbnail: p901,
-    images: [p901, p902, p903],
-    fullDescription: {
-      en: "MiniBlog is a full-stack web application that lets users create, edit and manage blog posts with authentication. It was built with React on the frontend and Firebase for the backend services (authentication and database), focused on modern frontend architecture, reusable hooks and real-time data. Firestore operations are abstracted into custom hooks (such as useInsertDocument), and the global auth state is managed via the Context API.",
-      pt: "MiniBlog é uma aplicação web full-stack que permite criar, editar e gerenciar posts de blog com autenticação. Foi construída com React no frontend e Firebase nos serviços de backend (autenticação e banco de dados), com foco em arquitetura frontend moderna, hooks reutilizáveis e dados em tempo real. As operações do Firestore são abstraídas em hooks customizados (como useInsertDocument), e o estado global de autenticação é gerenciado via Context API.",
-    },
-    problem: {
-      en: "Building a complete application without maintaining your own backend means integrating a BaaS (Firebase) for authentication and database, abstracting CRUD operations in a reusable way and managing the global auth state consistently across pages.",
-      pt: "Construir uma aplicação completa sem manter um backend próprio exige integrar um BaaS (Firebase) para autenticação e banco de dados, abstrair as operações de CRUD de forma reutilizável e gerenciar o estado global de autenticação de maneira consistente entre as páginas.",
-    },
-    solution: {
-      en: "React + Vite on the frontend, with Firebase providing authentication (Firebase Auth) and a real-time database (Firestore) as a BaaS. Firestore operations are wrapped in reusable custom hooks, and the auth state is centralized in a Context API that controls the user session and the behavior of protected routes.",
-      pt: "React + Vite no frontend, com o Firebase fornecendo autenticação (Firebase Auth) e banco em tempo real (Firestore) como BaaS. As operações do Firestore são encapsuladas em hooks customizados reutilizáveis, e o estado de autenticação é centralizado em um Context API que controla a sessão do usuário e o comportamento das rotas protegidas.",
-    },
-    decisions: {
-      en: [
-        "Firebase as a BaaS (Auth + Firestore) to get authentication and a real-time database without maintaining your own backend",
-        "Custom hooks wrapping Firestore CRUD operations (e.g. useInsertDocument) to reuse the logic across pages",
-        "Context API for the global auth state, controlling session and protected routes in a centralized way",
-        "CSS Modules for component-scoped styles",
-        "Component-based architecture with separation of concerns",
-      ],
-      pt: [
-        "Firebase como BaaS (Auth + Firestore) para ter autenticação e banco em tempo real sem manter um backend próprio",
-        "Hooks customizados encapsulando as operações de CRUD do Firestore (ex.: useInsertDocument) para reaproveitar a lógica entre páginas",
-        "Context API para o estado global de autenticação, controlando sessão e rotas protegidas de forma centralizada",
-        "CSS Modules para estilos com escopo por componente",
-        "Arquitetura baseada em componentes com separação de responsabilidades",
-      ],
-    },
-    challenges: {
-      en: [
-        "Abstracting Firestore operations into reusable hooks instead of repeating the CRUD logic on each page",
-        "Centralizing the auth state with the Context API to control session and protected routes consistently",
-        "Handling real-time Firestore data while keeping the UI in sync",
-      ],
-      pt: [
-        "Abstrair as operações do Firestore em hooks reutilizáveis em vez de repetir a lógica de CRUD em cada página",
-        "Centralizar o estado de autenticação com Context API para controlar sessão e rotas protegidas de forma consistente",
-        "Lidar com dados em tempo real do Firestore mantendo a UI sincronizada",
-      ],
-    },
-    improvements: {
-      en: [
-        "Likes / reactions on posts",
-        "Comment system",
-        "UI/UX improvements",
-        "Pagination of posts",
-        "Deploy (Firebase Hosting / Vercel)",
-      ],
-      pt: [
-        "Curtidas / reações nos posts",
-        "Sistema de comentários",
-        "Melhorias de UI/UX",
-        "Paginação dos posts",
-        "Deploy (Firebase Hosting / Vercel)",
-      ],
-    },
-    github: "https://github.com/Luan-Neumann-Dev/miniblog",
-    year: "2023",
-    size: "md",
     accent: "purple",
   },
 ];

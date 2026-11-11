@@ -41,9 +41,9 @@ const ProjectDetail = () => {
         <img
           src={project.thumbnail}
           alt={project.title}
-          className="absolute inset-0 w-full h-full object-cover scale-105"
+          className="absolute inset-0 w-full h-full object-cover scale-105 opacity-40 blur-[2px]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/50" />
         <div className="absolute inset-0 grid-bg opacity-50" />
 
         <div className="container relative h-full flex flex-col justify-end pb-16">
