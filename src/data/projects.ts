@@ -8,8 +8,6 @@ import cf02 from "@/assets/projects/cf-02.webp";
 import cf03 from "@/assets/projects/cf-03.webp";
 import cf04 from "@/assets/projects/cf-04.webp";
 
-import ch01 from "@/assets/projects/ch-01.webp";
-
 import thumb3 from "@/assets/thumb3.png";
 import p301 from "@/assets/p3-01.png";
 import p302 from "@/assets/p3-02.png";
@@ -214,78 +212,6 @@ const projectsData: ProjectData[] = [
     year: "2026",
     size: "lg",
     accent: "purple",
-  },
-  {
-    id: "curious-hat",
-    title: "Curious Hat",
-    subtitle: {
-      en: "Social network with anonymity enforced by the database",
-      pt: "Rede social com anonimato garantido pelo banco de dados",
-    },
-    description: {
-      en: "Each post is signed or anonymous; anonymous posts self-destruct after 24 hours. Communities and real-time chat, with privacy rules in PostgreSQL Row Level Security rather than the UI. React 19, TypeScript and Supabase.",
-      pt: "Cada post é assinado ou anônimo; os anônimos se autodestroem em 24 horas. Comunidades e chat em tempo real, com as regras de privacidade no Row Level Security do PostgreSQL e não na interface. React 19, TypeScript e Supabase.",
-    },
-    techs: ["React 19", "TypeScript", "Supabase", "PostgreSQL", "Realtime", "Tailwind CSS 4"],
-    thumbnail: ch01,
-    images: [ch01],
-    fullDescription: {
-      en: "Curious Hat is a social network built around one decision: for each post, called a hat, you choose whether it carries your name or an anonymous codename. Signed hats stay on your profile; anonymous hats disappear after 24 hours, with a live countdown the author can extend. Users follow each other, join communities, like and reply to hats, and talk in direct, anonymous and community chats delivered in real time. It started as a university assignment (multiple screens, validation, a consumed REST API, WCAG AA accessibility and a production deploy) and grew into a chance to design real authorization rules.",
-      pt: "Curious Hat é uma rede social construída em torno de uma decisão: em cada post, chamado de hat, você escolhe se ele leva o seu nome ou um codinome anônimo. Hats assinados ficam no seu perfil; os anônimos somem depois de 24 horas, com uma contagem regressiva que o autor pode estender. Os usuários se seguem, entram em comunidades, curtem e respondem hats e conversam em chats diretos, anônimos e de comunidade entregues em tempo real. Começou como um trabalho da faculdade (várias telas, validação, consumo de API REST, acessibilidade WCAG AA e deploy em produção) e virou uma chance de projetar regras de autorização de verdade.",
-    },
-    problem: {
-      en: "Anonymity is only worth something if it survives a curious user with the browser's network tab open. If the API returns the author's ID, hiding it in the UI is useless. Real-time chat makes it harder: Realtime broadcasts database rows, and a user_id on each message would reveal who is behind an anonymous conversation. And administrators still need to moderate content without seeing who wrote it.",
-      pt: "Anonimato só vale alguma coisa se resiste a um usuário curioso com a aba de rede do navegador aberta. Se a API devolve o ID do autor, esconder na interface não adianta nada. O chat em tempo real piora: o Realtime transmite linhas do banco, e um user_id em cada mensagem revelaria quem está por trás de uma conversa anônima. E os administradores ainda precisam moderar o conteúdo sem ver quem escreveu.",
-    },
-    solution: {
-      en: "The rules live in PostgreSQL instead of the front end. Base tables can only be read by the post's own author; everyone else reads views that blank out identifying columns whenever a hat is anonymous. Messages point to a conversation participant instead of a person, so broadcast rows carry nothing that identifies the sender. Moderation goes through security-definer functions that check permission and return only what the admin needs.",
-      pt: "As regras ficam no PostgreSQL, e não no front-end. As tabelas base só podem ser lidas pelo próprio autor do post; todos os outros leem views que apagam as colunas de identificação quando o hat é anônimo. As mensagens apontam para um participante da conversa em vez de uma pessoa, então as linhas transmitidas não carregam nada que identifique quem enviou. A moderação passa por funções security definer que verificam a permissão e devolvem só o que o administrador precisa.",
-    },
-    decisions: {
-      en: [
-        "Row Level Security on every table plus column-level write permissions, so authorization holds for every request regardless of the client",
-        "Public views that return null for author columns on anonymous hats and filter out expired hats — no cleanup job needed",
-        "Messages linked to conversation members through a composite foreign key, which also guarantees the sender belongs to the conversation",
-        "A service layer that turns Supabase errors into clear messages in Portuguese, keeping components free of API details",
-        "Optimistic likes that fall back to the server's count, and images compressed in the browser before upload",
-      ],
-      pt: [
-        "Row Level Security em todas as tabelas, mais permissões de escrita por coluna, para a autorização valer em toda requisição independente do cliente",
-        "Views públicas que devolvem null nas colunas de autor de hats anônimos e filtram os hats expirados — sem precisar de rotina de limpeza",
-        "Mensagens ligadas a participantes da conversa por uma chave estrangeira composta, que também garante que quem envia pertence à conversa",
-        "Uma camada de services que transforma erros do Supabase em mensagens claras em português, mantendo os componentes livres de detalhes da API",
-        "Curtidas otimistas que voltam ao número do servidor em caso de falha, e imagens comprimidas no navegador antes do upload",
-      ],
-    },
-    challenges: {
-      en: [
-        "Anonymity that survives the network tab — solved with views that strip the author from anonymous content before it leaves the database",
-        "Real-time chat without leaking identities — solved by broadcasting participant IDs instead of user IDs",
-        "Moderation without seeing authors — solved with permission-checked database functions instead of giving admins read access",
-      ],
-      pt: [
-        "Anonimato que resiste à aba de rede — resolvido com views que removem o autor do conteúdo anônimo antes de ele sair do banco",
-        "Chat em tempo real sem vazar identidades — resolvido transmitindo IDs de participante em vez de IDs de usuário",
-        "Moderação sem ver autores — resolvida com funções no banco que verificam a permissão, em vez de dar acesso de leitura aos administradores",
-      ],
-    },
-    improvements: {
-      en: [
-        "Push notifications for replies and messages",
-        "Reporting flow so users can flag abusive hats",
-        "Automated tests for the RLS policies",
-      ],
-      pt: [
-        "Notificações push para respostas e mensagens",
-        "Fluxo de denúncia para os usuários sinalizarem hats abusivos",
-        "Testes automatizados para as políticas de RLS",
-      ],
-    },
-    github: "https://github.com/Luan-Neumann-Dev/curious-hat-app",
-    demo: "https://curious-hat-app-nu.vercel.app",
-    year: "2026",
-    size: "md",
-    accent: "magenta",
   },
   {
     id: "email-blast",
