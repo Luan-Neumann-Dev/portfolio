@@ -67,7 +67,7 @@ const stackData: { id: StackGroupId; techs: TechData[] }[] = [
       { name: "MySQL", usedAt: { en: "ZenFisio", pt: "ZenFisio" } },
       { name: "Livewire", usedAt: { en: "ZenFisio design system", pt: "Design system da ZenFisio" } },
       { name: "REST APIs", usedAt: { en: "ZenFisio · Abase · FinanceHub", pt: "ZenFisio · Abase · FinanceHub" } },
-      { name: "PHPUnit · Pest", usedAt: { en: "ZenFisio · Habit Tracker · Email Blast", pt: "ZenFisio · Habit Tracker · Email Blast" } },
+      { name: "PHPUnit · Pest", usedAt: { en: "ZenFisio · Email Blast", pt: "ZenFisio · Email Blast" } },
       { name: "Tailwind CSS", usedAt: { en: "ZenFisio · every personal project", pt: "ZenFisio · todos os projetos pessoais" } },
     ],
   },
