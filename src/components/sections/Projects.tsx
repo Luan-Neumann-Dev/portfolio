@@ -146,7 +146,7 @@ const Projects = () => {
                   className='absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110'
                 />
 
-                <div className='absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity duration-500' />
+                <div className='absolute inset-0 bg-gradient-to-t from-background from-10% via-background/75 via-45% to-background/10 transition-opacity duration-500' />
 
                 <div className={cn(
                   "absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-br mix-blend-overlay",
