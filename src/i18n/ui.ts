@@ -13,12 +13,11 @@ export type UIStrings = {
     back: string;
   };
   hero: {
-    available: string;
+    current: string;
     viewProjects: string;
     portraitAlt: string;
     expLabel: string;
     expValue: string;
-    online: string;
     stats: { v: string; l: string }[];
   };
   about: {
@@ -91,12 +90,11 @@ export const ui: Record<Lang, UIStrings> = {
       back: "← Back",
     },
     hero: {
-      available: "Available for new projects",
+      current: "Currently on the innovation team at ZenFisio",
       viewProjects: "View projects",
       portraitAlt: "Portrait of",
       expLabel: "Exp",
       expValue: "3 yrs",
-      online: "Online now",
       stats: [
         { v: "3", l: "Years of experience" },
         { v: "100k+", l: "Healthcare professionals on the SaaS I build" },
@@ -140,7 +138,7 @@ export const ui: Record<Lang, UIStrings> = {
       tag: "// let's build",
       heading: { pre: "Got an idea? ", highlight: "Let's talk.", post: "" },
       blurb:
-        "I'm open to freelance projects, full-time roles and open source collaborations. I usually reply within 24h.",
+        "Want to talk about a project, a technical idea or just swap experiences? Send me a message — I usually reply within 24h.",
       footerNote: "Built with coffee and curiosity.",
     },
     projectDetail: {
@@ -174,12 +172,11 @@ export const ui: Record<Lang, UIStrings> = {
       back: "← Voltar",
     },
     hero: {
-      available: "Disponível para novos projetos",
+      current: "Hoje no time de inovação da ZenFisio",
       viewProjects: "Ver projetos",
       portraitAlt: "Retrato de",
       expLabel: "Exp",
       expValue: "3 anos",
-      online: "Online agora",
       stats: [
         { v: "3", l: "Anos de experiência" },
         { v: "100 mil+", l: "Profissionais de saúde no SaaS em que trabalho" },
@@ -223,7 +220,7 @@ export const ui: Record<Lang, UIStrings> = {
       tag: "// vamos construir",
       heading: { pre: "Tem uma ideia? ", highlight: "Vamos conversar.", post: "" },
       blurb:
-        "Estou aberto para projetos freelance, posições full-time e colaborações em open source. Geralmente respondo em até 24h.",
+        "Quer conversar sobre um projeto, uma ideia técnica ou só trocar experiências? Me manda uma mensagem — geralmente respondo em até 24h.",
       footerNote: "Construído com café e curiosidade.",
     },
     projectDetail: {

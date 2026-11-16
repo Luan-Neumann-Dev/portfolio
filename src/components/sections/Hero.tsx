@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Github, Sparkles } from "lucide-react";
-import portrait from "@/assets/hero-portrait.png";
+import { ArrowRight, Github, Linkedin, MapPin, Sparkles } from "lucide-react";
+import portrait from "@/assets/luan-portrait.webp";
 import heroBg from "@/assets/hero-bg.jpg";
 import { useContent } from "@/i18n/useContent";
 import { useUI } from "@/i18n/ui";
@@ -32,7 +32,7 @@ const Hero = () => {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm font-medium text-muted-foreground">
               <Sparkles className="text-accent w-3.5 h-3.5" />
-              {ui.hero.available}
+              {ui.hero.current}
             </div>
 
             <h1 className="font-display font-bold leading-[0.95] tracking-tight">
@@ -73,6 +73,16 @@ const Hero = () => {
                 <Github className="w-4 h-4" />
                 GitHub
               </a>
+
+              <a
+                href={profile.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass hover:border-primary/40 transition-all"
+              >
+                <Linkedin className="w-4 h-4" />
+                LinkedIn
+              </a>
             </div>
           </motion.div>
 
@@ -109,7 +119,7 @@ const Hero = () => {
                   Stack
                 </p>
                 <p className="text-sm font-semibold mt-0.5">
-                  Laravel · React · TS
+                  Laravel · PHP · React
                 </p>
               </motion.div>
 
@@ -140,8 +150,8 @@ const Hero = () => {
                 className="absolute -left-2 -bottom-6 glass-card p-3 px-4 hidden md:block"
               >
                 <div className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-accent animate-pulse shadow-glow-cyan" />
-                  <p className="text-sm font-semibold">{ui.hero.online}</p>
+                  <MapPin className="w-3.5 h-3.5 text-accent" />
+                  <p className="text-sm font-semibold">{profile.location}</p>
                 </div>
               </motion.div>
             </div>
