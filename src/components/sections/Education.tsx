@@ -1,21 +1,12 @@
 import { useMemo, useState } from 'react'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
-import { Award, ArrowUpRight } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { Award, ArrowUpRight, FileText } from 'lucide-react'
 import { useContent } from '@/i18n/useContent'
 import { useUI } from '@/i18n/ui'
-import rocketFigma from "@/assets/rocket-figma.png";
-import rocketPhp from "@/assets/rocket-php.png";
 import rocketPhpFormacao from "@/assets/rocket-php-formacao.jpg";
 import rocketLaravel from "@/assets/rocket-laravel.jpg";
-import rocketLaravelApi from "@/assets/rocket-laravel-api.jpg";
-import rocketLivewire from "@/assets/rocket-livewire.jpg";
 import rocketTests from "@/assets/rocket-tests.jpg";
-import udemyC from "@/assets/udemy-c.png"
-import udemyFront from "@/assets/udemy-front.png"
 import udemyReact from "@/assets/udemy-react.png"
-import udemyJs from "@/assets/udemy-js.png"
-import udemyNode from "@/assets/udemy-node.png"
 import edu1 from "@/assets/edu-1.png"
 
 const eduLogos: Record<string, string> = {
@@ -23,18 +14,10 @@ const eduLogos: Record<string, string> = {
 };
 
 const certImages: Record<string, string> = {
-  "rocket-php": rocketPhp,
   "rocket-php-formacao": rocketPhpFormacao,
   "rocket-laravel": rocketLaravel,
-  "rocket-laravel-api": rocketLaravelApi,
-  "rocket-livewire": rocketLivewire,
   "rocket-tests": rocketTests,
-  "rocket-figma": rocketFigma,
-  "udemy-c": udemyC,
-  "udemy-front": udemyFront,
   "udemy-react": udemyReact,
-  "udemy-js": udemyJs,
-  "udemy-node": udemyNode
 };
 
 const issuerIcons: Record<string, string> = {
@@ -43,44 +26,16 @@ const issuerIcons: Record<string, string> = {
 };
 const iconFor = (issuer: string) => issuerIcons[issuer] ?? "📜";
 
-// Stable sentinel for the "all issuers" filter — kept language-independent so
-// switching the language never invalidates the active filter.
-const ALL = "__all__";
-const pad = (n: number) => String(n).padStart(2, "0");
-
 const Education = () => {
-  const { education, certifications } = useContent();
+  const { education, certifications, publications } = useContent();
   const ui = useUI();
   const reduceMotion = useReducedMotion();
-  const [filter, setFilter] = useState<string>(ALL);
   const [hovered, setHovered] = useState<string | null>(null);
 
-  // Emissores únicos, derivados dos dados (filtro se atualiza sozinho ao adicionar certificados).
-  const issuers = useMemo(
-    () => Array.from(new Set(certifications.map((c) => c.issuer))),
-    [certifications]
-  );
-
   const sorted = useMemo(
-    () => [...certifications].sort((a, b) => b.year - a.year),
+    () => [...certifications].sort((a, b) => (b.hours ?? 0) - (a.hours ?? 0)),
     [certifications]
   );
-
-  // Soma a carga horária apenas dos certificados que têm o dado disponível.
-  const totalHours = useMemo(
-    () => certifications.reduce((sum, c) => sum + (c.hours ?? 0), 0),
-    [certifications]
-  );
-
-  const visible = useMemo(
-    () => (filter === ALL ? sorted : sorted.filter((c) => c.issuer === filter)),
-    [filter, sorted]
-  );
-
-  const countFor = (issuer: string) =>
-    issuer === ALL
-      ? certifications.length
-      : certifications.filter((c) => c.issuer === issuer).length;
 
   return (
     <section id='formacao' className='relative py-32'>
@@ -130,6 +85,40 @@ const Education = () => {
             </motion.div>
           ))}
 
+          {publications.map((pub) => (
+            <motion.a
+              key={pub.href}
+              href={pub.href}
+              target='_blank'
+              rel='noopener noreferrer'
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className='group glass-card p-6 hover:border-primary/40 hover:-translate-y-1 transition-all duration-500 lg:col-span-2 flex flex-col'
+            >
+              <div className='flex items-center justify-between gap-4 mb-5'>
+                <div className='flex items-center gap-3'>
+                  <div className='w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center shadow-glow'>
+                    <FileText className='w-5 h-5 text-primary-foreground' />
+                  </div>
+                  <p className='font-mono text-[10px] text-accent uppercase tracking-widest'>
+                    {ui.education.publication} · {pub.year}
+                  </p>
+                </div>
+                <ArrowUpRight className='shrink-0 w-5 h-5 text-muted-foreground transition-all duration-300 group-hover:text-accent group-hover:-translate-y-0.5 group-hover:translate-x-0.5' />
+              </div>
+
+              <h3 className='font-display text-2xl font-bold mb-1'>{pub.title}</h3>
+              <p className='text-sm text-muted-foreground mb-4'>
+                {pub.venue} · {ui.education.coauthors} {pub.coauthors}
+              </p>
+              <p className='text-sm text-muted-foreground leading-relaxed'>{pub.summary}</p>
+
+              <span className='mt-auto pt-5 font-mono text-xs text-accent'>{ui.education.readPaper} →</span>
+            </motion.a>
+          ))}
+
           <motion.div
             initial={{opacity: 0, y: 20}}
             whileInView={{ opacity: 1, y: 0}}
@@ -138,62 +127,17 @@ const Education = () => {
             className='glass-card p-6 lg:col-span-3'
           >
             {/* Cabeçalho */}
-            <div className='flex items-center justify-between gap-4 mb-6'>
-              <div className='flex items-center gap-3'>
-                <div className='w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center shadow-glow'>
-                  <Award className='w-5 h-5 text-primary-foreground' />
-                </div>
-                <h3 className='font-display text-xl font-bold'>{ui.education.certifications}</h3>
+            <div className='flex items-center gap-3 mb-6'>
+              <div className='w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center shadow-glow'>
+                <Award className='w-5 h-5 text-primary-foreground' />
               </div>
-              <p className='font-mono text-xs text-muted-foreground text-right'>
-                <span className='text-gradient font-bold text-base'>{pad(certifications.length)}</span>{" "}
-                {ui.education.total}
-                {totalHours > 0 && (
-                  <>
-                    {" · "}
-                    <span className='text-gradient font-bold text-base'>{totalHours}h</span>{" "}
-                    {ui.education.study}
-                  </>
-                )}
-              </p>
-            </div>
-
-            {/* Filtro por emissor */}
-            <div className='flex flex-wrap gap-2 mb-6'>
-              {[ALL, ...issuers].map((issuer) => {
-                const active = filter === issuer;
-                return (
-                  <button
-                    key={issuer}
-                    type='button'
-                    onClick={() => setFilter(issuer)}
-                    aria-pressed={active}
-                    className={cn(
-                      'inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono border transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
-                      active
-                        ? 'bg-gradient-primary text-primary-foreground border-transparent shadow-glow'
-                        : 'bg-secondary/40 text-muted-foreground border-primary/10 hover:border-primary/40 hover:text-foreground'
-                    )}
-                  >
-                    {issuer !== ALL && <span aria-hidden>{iconFor(issuer)}</span>}
-                    <span>{issuer === ALL ? ui.education.all : issuer}</span>
-                    <span
-                      className={cn(
-                        'tabular-nums',
-                        active ? 'text-primary-foreground/70' : 'text-accent'
-                      )}
-                    >
-                      {pad(countFor(issuer))}
-                    </span>
-                  </button>
-                );
-              })}
+              <h3 className='font-display text-xl font-bold'>{ui.education.certifications}</h3>
             </div>
 
             {/* Ledger de certificados */}
             <motion.div layout className='grid sm:grid-cols-2 gap-3'>
               <AnimatePresence mode='popLayout'>
-                {visible.map((c) => (
+                {sorted.map((c) => (
                   <motion.a
                     key={c.id}
                     layout

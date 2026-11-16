@@ -46,9 +46,9 @@ export type UIStrings = {
     tag: string;
     heading: Heading;
     certifications: string;
-    all: string;
-    total: string;
-    study: string;
+    publication: string;
+    coauthors: string;
+    readPaper: string;
     certAriaPrefix: string;
     certAriaSuffix: string;
   };
@@ -129,10 +129,10 @@ export const ui: Record<Lang, UIStrings> = {
     education: {
       tag: "// education",
       heading: { pre: "", highlight: "Continuous", post: " learning" },
-      certifications: "Certifications",
-      all: "All",
-      total: "total",
-      study: "of study",
+      certifications: "Selected certifications",
+      publication: "Published research",
+      coauthors: "with",
+      readPaper: "Read the paper",
       certAriaPrefix: "View certificate:",
       certAriaSuffix: "(opens in a new tab)",
     },
@@ -212,10 +212,10 @@ export const ui: Record<Lang, UIStrings> = {
     education: {
       tag: "// formação",
       heading: { pre: "Aprendizado ", highlight: "contínuo", post: "" },
-      certifications: "Certificações",
-      all: "Todos",
-      total: "no total",
-      study: "de estudo",
+      certifications: "Certificações selecionadas",
+      publication: "Pesquisa publicada",
+      coauthors: "com",
+      readPaper: "Ler o artigo",
       certAriaPrefix: "Ver certificado:",
       certAriaSuffix: "(abre em nova aba)",
     },
