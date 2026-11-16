@@ -3,10 +3,10 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { Award, ArrowUpRight, FileText } from 'lucide-react'
 import { useContent } from '@/i18n/useContent'
 import { useUI } from '@/i18n/ui'
-import rocketPhpFormacao from "@/assets/rocket-php-formacao.jpg";
-import rocketLaravel from "@/assets/rocket-laravel.jpg";
-import rocketTests from "@/assets/rocket-tests.jpg";
-import udemyReact from "@/assets/udemy-react.png"
+import rocketPhpFormacao from "@/assets/rocket-php-formacao.webp";
+import rocketLaravel from "@/assets/rocket-laravel.webp";
+import rocketTests from "@/assets/rocket-tests.webp";
+import udemyReact from "@/assets/udemy-react.webp"
 import edu1 from "@/assets/edu-1.png"
 
 const eduLogos: Record<string, string> = {

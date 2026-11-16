@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { MapPin, Mail } from 'lucide-react'
-import workspace from "@/assets/about-workspace.jpg";
+import workspace from "@/assets/about-workspace.webp";
 import { useContent } from '@/i18n/useContent'
 import { useUI } from '@/i18n/ui'
 

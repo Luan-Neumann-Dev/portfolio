@@ -8,11 +8,11 @@ import cf02 from "@/assets/projects/cf-02.webp";
 import cf03 from "@/assets/projects/cf-03.webp";
 import cf04 from "@/assets/projects/cf-04.webp";
 
-import thumb3 from "@/assets/thumb3.png";
-import p301 from "@/assets/p3-01.png";
-import p302 from "@/assets/p3-02.png";
-import p303 from "@/assets/p3-03.png";
-import p304 from "@/assets/p3-04.png";
+import thumb3 from "@/assets/thumb3.webp";
+import p301 from "@/assets/p3-01.webp";
+import p302 from "@/assets/p3-02.webp";
+import p303 from "@/assets/p3-03.webp";
+import p304 from "@/assets/p3-04.webp";
 
 import habitCover from "@/assets/projects/habit-cover.svg";
 import habitArchitecture from "@/assets/projects/habit-architecture.svg";
